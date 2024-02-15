@@ -29,7 +29,7 @@ export function CategoryListView() {
 
     const handleEditClick = (e, data) => {
         e.preventDefault();
-        navigate(`/categories/${data.id}/modifier`);
+        navigate(`/categories/${data.id}/edit`);
     }
     const handleDeleteClick = async (e, category) => {
         e.preventDefault();
@@ -55,7 +55,7 @@ export function CategoryListView() {
             const {categories} = await CategoryService.getAll(
                 {page: page}, abortController.signal);
 
-            setCategorys(categories.data);
+            setCategorys(categories);
             setPageLength(categories.last_page);
         } catch (error) {
             console.log(error);
@@ -77,7 +77,7 @@ export function CategoryListView() {
         <>
             <h3>Liste Categorys</h3>
             <Components.Loader isLoading={isLoading}>
-                <Link className='btn btn-info' to='/categories/creer'>
+                <Link className='btn btn-info' to='/categories/create'>
                     <i className='icon ion-plus'></i> Ajout category
                 </Link>
                 <div className='table-responsive'>

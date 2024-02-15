@@ -37,7 +37,7 @@ export function UserListView() {
 
     const handleEditClick = (e, data) => {
         e.preventDefault();
-        navigate(`/users/${data.id}/modifier`);
+        navigate(`/users/${data.id}/edit`);
     }
     const handleDeleteClick = async (e, user) => {
         e.preventDefault();
@@ -85,7 +85,7 @@ export function UserListView() {
         <>
             <h3>Liste Users</h3>
             <Components.Loader isLoading={isLoading}>
-                <Link className='btn btn-info' to='/users/creer'>
+                <Link className='btn btn-info' to='/users/create'>
                     <i className='icon ion-plus'></i> Ajout user
                 </Link>
                 <div className='table-responsive'>

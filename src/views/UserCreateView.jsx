@@ -36,7 +36,7 @@ export function UserCreateView() {
         useUser.setIsDisabled(true);
 
         try {
-            const { countries } = await Services.countrieservice.getAll(
+            const { countries } = await Services.CountryService.getAll(
                 abortController.signal);
 			setcountries(countries);
 			

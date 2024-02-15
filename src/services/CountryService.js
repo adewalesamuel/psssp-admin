@@ -23,7 +23,7 @@ const destroy = (id, signal) => {
     return Api.erase(`${ENPOINTS.Country}/${id}`, signal)
 }
 
-export const countrieservice = {
+export const CountryService = {
     getAll,
     getById,
     create,

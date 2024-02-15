@@ -26,7 +26,7 @@ export function PermissionListView() {
 
     const handleEditClick = (e, data) => {
         e.preventDefault();
-        navigate(`/permissions/${data.id}/modifier`);
+        navigate(`/permissions/${data.id}/edit`);
     }
     const handleDeleteClick = async (e, permission) => {
         e.preventDefault();
@@ -74,7 +74,7 @@ export function PermissionListView() {
         <>
             <h3>Liste Permissions</h3>
             <Components.Loader isLoading={isLoading}>
-                <Link className='btn btn-info' to='/permissions/creer'>
+                <Link className='btn btn-info' to='/permissions/create'>
                     <i className='icon ion-plus'></i> Ajout permission
                 </Link>
                 <div className='table-responsive'>

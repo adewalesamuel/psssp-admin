@@ -25,8 +25,10 @@ import { AdminEditView } from './AdminEditView';
 import { EbookListView } from './EbookListView';
 import { EbookCreateView } from './EbookCreateView';
 import { EbookEditView } from './EbookEditView';
+import { DashboardView } from './DashboardView';
+import { LoginView } from './LoginView';
 
-export const views = {
+export const Views = {
     CountryListView,
 	CountryCreateView,
 	CountryEditView,
@@ -54,5 +56,6 @@ export const views = {
 	EbookListView,
 	EbookCreateView,
 	EbookEditView,
-	
+	DashboardView,
+	LoginView
 }

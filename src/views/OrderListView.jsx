@@ -30,7 +30,7 @@ export function OrderListView() {
 
     const handleEditClick = (e, data) => {
         e.preventDefault();
-        navigate(`/orders/${data.id}/modifier`);
+        navigate(`/orders/${data.id}/edit`);
     }
     const handleDeleteClick = async (e, order) => {
         e.preventDefault();
@@ -78,7 +78,7 @@ export function OrderListView() {
         <>
             <h3>Liste Orders</h3>
             <Components.Loader isLoading={isLoading}>
-                <Link className='btn btn-info' to='/orders/creer'>
+                <Link className='btn btn-info' to='/orders/create'>
                     <i className='icon ion-plus'></i> Ajout order
                 </Link>
                 <div className='table-responsive'>

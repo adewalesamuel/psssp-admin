@@ -8,7 +8,7 @@ import { Utils } from '../utils';
 export function CountryListView() {
     let abortController = new AbortController();
 
-    const { countrieservice } = Services;
+    const { CountryService } = Services;
 
     const tableAttributes = {
         'name': {},
@@ -28,7 +28,7 @@ export function CountryListView() {
 
     const handleEditClick = (e, data) => {
         e.preventDefault();
-        navigate(`/countries/${data.id}/modifier`);
+        navigate(`/countries/${data.id}/edit`);
     }
     const handleDeleteClick = async (e, country) => {
         e.preventDefault();
@@ -44,17 +44,17 @@ export function CountryListView() {
             countriesCopy.splice(index, 1);
             setcountries(countriesCopy);
 
-            await countrieservice.destroy(country.id, 
+            await CountryService.destroy(country.id, 
                 abortController.signal);
         }
     }
 
     const init = useCallback(async () => {
         try {
-            const {countries} = await countrieservice.getAll(
+            const {countries} = await CountryService.getAll(
                 {page: page}, abortController.signal);
 
-            setcountries(countries.data);
+            setcountries(countries);
             setPageLength(countries.last_page);
         } catch (error) {
             console.log(error);
@@ -76,7 +76,7 @@ export function CountryListView() {
         <>
             <h3>Liste countries</h3>
             <Components.Loader isLoading={isLoading}>
-                <Link className='btn btn-info' to='/countries/creer'>
+                <Link className='btn btn-info' to='/countries/create'>
                     <i className='icon ion-plus'></i> Ajout country
                 </Link>
                 <div className='table-responsive'>

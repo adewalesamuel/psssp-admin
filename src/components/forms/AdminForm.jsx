@@ -2,7 +2,7 @@
 
 export function AdminForm(props) {
     return (
-        <form className='form' disabled={props.isDisabled ?? false}
+        <form className='form card col-12 col-md-6 p-4'
         onSubmit={props.handleFormSubmit ?? null}>
             <div className='row'>
                 <div className='col-12'>

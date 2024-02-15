@@ -33,7 +33,7 @@ export function EbookListView() {
 
     const handleEditClick = (e, data) => {
         e.preventDefault();
-        navigate(`/ebooks/${data.id}/modifier`);
+        navigate(`/ebooks/${data.id}/edit`);
     }
     const handleDeleteClick = async (e, ebook) => {
         e.preventDefault();
@@ -81,7 +81,7 @@ export function EbookListView() {
         <>
             <h3>Liste Ebooks</h3>
             <Components.Loader isLoading={isLoading}>
-                <Link className='btn btn-info' to='/ebooks/creer'>
+                <Link className='btn btn-info' to='/ebooks/create'>
                     <i className='icon ion-plus'></i> Ajout ebook
                 </Link>
                 <div className='table-responsive'>

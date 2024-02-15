@@ -1,4 +1,4 @@
-import imgPlaceholder from '../assets/img/img0.jpg';
+import imgPlaceholder from '../assets/images/users/avatar-1.jpg';
 
 export function ImageFileInput(props) {
 

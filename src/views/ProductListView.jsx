@@ -35,7 +35,7 @@ export function ProductListView() {
 
     const handleEditClick = (e, data) => {
         e.preventDefault();
-        navigate(`/products/${data.id}/modifier`);
+        navigate(`/products/${data.id}/edit`);
     }
     const handleDeleteClick = async (e, product) => {
         e.preventDefault();
@@ -83,7 +83,7 @@ export function ProductListView() {
         <>
             <h3>Liste Products</h3>
             <Components.Loader isLoading={isLoading}>
-                <Link className='btn btn-info' to='/products/creer'>
+                <Link className='btn btn-info' to='/products/create'>
                     <i className='icon ion-plus'></i> Ajout product
                 </Link>
                 <div className='table-responsive'>

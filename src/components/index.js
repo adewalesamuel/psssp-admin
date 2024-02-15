@@ -15,6 +15,9 @@ import { Spinner } from './Spinner';
 import { Loader } from './Loader';
 import { ErrorMessages } from './ErrorMessages';
 import { ImageFileInput } from './ImageFileInput';
+import { Header } from './Header';
+import { MainMenu } from './MainMenu';
+import { Footer } from './Footer';
 
 export const Components = {
     CountryForm,
@@ -33,6 +36,9 @@ export const Components = {
 	Spinner,
 	Loader,
 	ErrorMessages,
-	ImageFileInput
+	ImageFileInput,
+	Header,
+	MainMenu,
+	Footer
 	
 }

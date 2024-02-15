@@ -33,12 +33,12 @@ export function Table(props) {
     const renderTableHeads = () => {
         const tableHeads = Object.keys(tableAttributes)
         .map((key, index) => {
-            const regEx = new RegExp('[-_]', 'gi')
+            const regEx = new RegExp('[-_]', 'gi');
             return (
                 <th className={`${tableAttributes[key].thClassName ?? ""} 
                 whitespace-no-wrap`}
                 key={index}>
-                    {key.replace(regEx, '').toUpperCase()}
+                    {key.replace(regEx, ' ').toUpperCase()}
                 </th>
             )
         })
@@ -90,15 +90,17 @@ export function Table(props) {
         
 
     return (
-        <div className='table-responsive'>
-            <table className="table">
-                <thead>
-                    <tr>{renderTableHeads()}</tr>
-                </thead>
-                <tbody>
-                    {tableData.map((rowData, index) => renderTableRow(rowData, index))}
-                </tbody>
-            </table>
+        <div className="card mt-3">
+            <div className='table-responsive'>
+                <table className="table">
+                    <thead>
+                        <tr>{renderTableHeads()}</tr>
+                    </thead>
+                    <tbody>
+                        {tableData.map((rowData, index) => renderTableRow(rowData, index))}
+                    </tbody>
+                </table>
+            </div>
         </div>
 
     )

@@ -1,4 +1,4 @@
-import { countrieservice } from './countrieservice';
+import { CountryService } from './CountryService';
 import { CategoryService } from './CategoryService';
 import { UserService } from './UserService';
 import { ProductService } from './ProductService';
@@ -7,9 +7,11 @@ import { PermissionService } from './PermissionService';
 import { RoleService } from './RoleService';
 import { AdminService } from './AdminService';
 import { EbookService } from './EbookService';
+import { AuthService } from './AuthService';
+import { FileService } from './FileService';
 
 export const Services = {
-    countrieservice,
+    CountryService,
 	CategoryService,
 	UserService,
 	ProductService,
@@ -18,5 +20,7 @@ export const Services = {
 	RoleService,
 	AdminService,
 	EbookService,
+	AuthService,
+	FileService
 	
 }

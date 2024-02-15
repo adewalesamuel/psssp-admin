@@ -13,7 +13,6 @@ export function AdminListView() {
     const tableAttributes = {
         'fullname': {},
 		'email': {},
-		'password': {},
 		'profile_img_url': {},
 		'role_id': {},
 		
@@ -29,7 +28,7 @@ export function AdminListView() {
 
     const handleEditClick = (e, data) => {
         e.preventDefault();
-        navigate(`/admins/${data.id}/modifier`);
+        navigate(`/admins/${data.id}/edit`);
     }
     const handleDeleteClick = async (e, admin) => {
         e.preventDefault();
@@ -77,7 +76,7 @@ export function AdminListView() {
         <>
             <h3>Liste Admins</h3>
             <Components.Loader isLoading={isLoading}>
-                <Link className='btn btn-info' to='/admins/creer'>
+                <Link className='btn btn-info' to='/admins/create'>
                     <i className='icon ion-plus'></i> Ajout admin
                 </Link>
                 <div className='table-responsive'>

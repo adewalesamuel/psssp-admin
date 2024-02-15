@@ -3,7 +3,7 @@ window.localStorage : {getItem: () => null, setItem: () => null,
 removeItem: () => null};
 
 const getSessionToken = () => {
-    return localStorage?.getItem('utk') ?? null;
+    return localStorage?.getItem('atk') ?? null;
 }
 
 const isLoggedIn = () => {
@@ -14,7 +14,7 @@ const isLoggedIn = () => {
 }
 
 const setSessionToken = token => {
-    localStorage?.setItem('utk', token)
+    localStorage?.setItem('atk', token)
 }
 
 const setUser = user => {
@@ -22,7 +22,7 @@ const setUser = user => {
 }
 
 const removeSessionToken = () => {
-    localStorage?.removeItem('utk');
+    localStorage?.removeItem('atk');
     localStorage?.removeItem('user');
 }
 

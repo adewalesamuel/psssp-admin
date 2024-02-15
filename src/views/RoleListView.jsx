@@ -27,7 +27,7 @@ export function RoleListView() {
 
     const handleEditClick = (e, data) => {
         e.preventDefault();
-        navigate(`/roles/${data.id}/modifier`);
+        navigate(`/roles/${data.id}/edit`);
     }
     const handleDeleteClick = async (e, role) => {
         e.preventDefault();
@@ -75,7 +75,7 @@ export function RoleListView() {
         <>
             <h3>Liste Roles</h3>
             <Components.Loader isLoading={isLoading}>
-                <Link className='btn btn-info' to='/roles/creer'>
+                <Link className='btn btn-info' to='/roles/create'>
                     <i className='icon ion-plus'></i> Ajout role
                 </Link>
                 <div className='table-responsive'>
