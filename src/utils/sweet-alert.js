@@ -1,14 +1,5 @@
 import Swal from "sweetalert2";
 
-const swalWithBootstrapButtons1 = Swal.mixin({
-    customClass: {
-      confirmButton: 'btn btn-danger mr-1 px-2',
-      cancelButton: 'btn btn-default px-2',
-      title: "font-medium-5"
-    },
-    buttonsStyling: false,
-  })
-
 const swalWithBootstrapButtons2 = Swal.mixin({
     customClass: {
       confirmButton: 'btn btn-success ml-4 px-4',

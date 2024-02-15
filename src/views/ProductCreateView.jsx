@@ -1,11 +1,11 @@
-//'use client'
+
 import { useCallback, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Services } from '../services';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
 
-export function ProductCreateView(props) {
+export function ProductCreateView() {
     let abortController = new AbortController();
 
     const navigate = useNavigate();
@@ -16,7 +16,7 @@ export function ProductCreateView(props) {
 	const [categories, setCategorys] = useState([]);
 	
     const [errorMessages, setErrorMessages] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    
 
     const handleFormSubmit = async e => {
         e.preventDefault();
@@ -38,9 +38,11 @@ export function ProductCreateView(props) {
         useProduct.setIsDisabled(true);
 
         try {
-            const { users } = await Services.UserService.getAll(abortController.signal);
+            const { users } = await Services.UserService.getAll(
+                abortController.signal);
 			setUsers(users);
-			const { categories } = await Services.CategoryService.getAll(abortController.signal);
+			const { categories } = await Services.CategoryService.getAll(
+                abortController.signal);
 			setCategorys(categories);
 			
         } catch (error) {
@@ -56,7 +58,7 @@ export function ProductCreateView(props) {
 
     return (
         <>
-            <h6>Créer Product</h6>
+            <h3>Créer Product</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}
@@ -64,7 +66,6 @@ export function ProductCreateView(props) {
             <Components.ProductForm useProduct={useProduct} 
             users={users} setUsers={setUsers}
 			categories={categories} setCategorys={setCategorys}
-			 
             isDisabled={useProduct.isDisabled} 
             handleFormSubmit={handleFormSubmit}/>
         </>

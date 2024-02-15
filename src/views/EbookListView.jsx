@@ -1,11 +1,11 @@
-//'use client'
+
 import { useCallback, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Services } from '../services';
 import { Components } from '../components';
 import { Utils } from '../utils';
 
-export function EbookListView(props) {
+export function EbookListView() {
     let abortController = new AbortController();
 
     const { EbookService } = Services;
@@ -22,13 +22,13 @@ export function EbookListView(props) {
 		'file_url': {},
 		
     }
-    const tableActions = ['raad', 'edit', 'delete'];
+    const tableActions = ['edit', 'delete'];
     
     const navigate = useNavigate();
 
     const [ebooks, setEbooks] = useState([]);
-    const [page, setPage] = useState(1);
-    const [pageLength, setPageLength] = useState(1);
+    const [page,] = useState(1);
+    const [, setPageLength] = useState(1);
     const [isLoading, setIsLoading] = useState(true);
 
     const handleEditClick = (e, data) => {
@@ -79,7 +79,7 @@ export function EbookListView(props) {
 
     return (
         <>
-            <h6>Liste Ebooks</h6>
+            <h3>Liste Ebooks</h3>
             <Components.Loader isLoading={isLoading}>
                 <Link className='btn btn-info' to='/ebooks/creer'>
                     <i className='icon ion-plus'></i> Ajout ebook

@@ -1,11 +1,10 @@
-//'use client'
-import { useCallback, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Services } from '../services';
+
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
 
-export function PermissionCreateView(props) {
+export function PermissionCreateView() {
     let abortController = new AbortController();
 
     const navigate = useNavigate();
@@ -14,7 +13,7 @@ export function PermissionCreateView(props) {
 
     
     const [errorMessages, setErrorMessages] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    
 
     const handleFormSubmit = async e => {
         e.preventDefault();
@@ -32,25 +31,9 @@ export function PermissionCreateView(props) {
         }
     }
 
-    const init = useCallback(async () => {
-        usePermission.setIsDisabled(true);
-
-        try {
-            
-        } catch (error) {
-            console.log(error);
-        }finally {
-            usePermission.setIsDisabled(false);
-        }
-    }, [])
-
-    useEffect(() => {
-        init()
-    }, [init])
-
     return (
         <>
-            <h6>Créer Permission</h6>
+            <h3>Créer Permission</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

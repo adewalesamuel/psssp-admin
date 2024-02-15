@@ -1,11 +1,10 @@
-//'use client'
+
 import { useCallback, useEffect, useState } from 'react';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
 import { useParams } from 'react-router-dom';
-import { Services } from '../services';
 
-export function RoleEditView(props) {
+export function RoleEditView() {
     let abortController = new AbortController();
 
     const {id} = useParams();
@@ -14,7 +13,7 @@ export function RoleEditView(props) {
 
     
     const [errorMessages, setErrorMessages] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [, setIsLoading] = useState(true);
 
     const handleFormSubmit = async e => {
         e.preventDefault();
@@ -52,7 +51,7 @@ export function RoleEditView(props) {
 
     return (
         <>
-            <h6 className='slim-pagetitle'>Modifier Role</h6>
+            <h3 className='slim-pagetitle'>Modifier Role</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

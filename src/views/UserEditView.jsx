@@ -1,11 +1,11 @@
-//'use client'
+
 import { useCallback, useEffect, useState } from 'react';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
 import { useParams } from 'react-router-dom';
 import { Services } from '../services';
 
-export function UserEditView(props) {
+export function UserEditView() {
     let abortController = new AbortController();
 
     const {id} = useParams();
@@ -15,7 +15,7 @@ export function UserEditView(props) {
     const [countries, setcountries] = useState([]);
 	
     const [errorMessages, setErrorMessages] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [, setIsLoading] = useState(true);
 
     const handleFormSubmit = async e => {
         e.preventDefault();
@@ -38,7 +38,8 @@ export function UserEditView(props) {
         try {
             await useUser.getUser(id, abortController.signal);
             
-            const { countries } = await Services.countrieservice.getAll(abortController.signal);
+            const { countries } = await Services.countrieservice.getAll(
+                abortController.signal);
 			setcountries(countries);
 			
         } catch (error) {
@@ -55,14 +56,13 @@ export function UserEditView(props) {
 
     return (
         <>
-            <h6 className='slim-pagetitle'>Modifier User</h6>
+            <h3 className='slim-pagetitle'>Modifier User</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}
             </Components.ErrorMessages>
             <Components.UserForm useUser={useUser} 
             countries={countries} setcountries={setcountries}
-			 
             isDisabled={useUser.isDisabled} 
             handleFormSubmit={handleFormSubmit}/>
         </>

@@ -1,11 +1,11 @@
-//'use client'
+
 import { useCallback, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Services } from '../services';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
 
-export function CategoryCreateView(props) {
+export function CategoryCreateView() {
     let abortController = new AbortController();
 
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ export function CategoryCreateView(props) {
     const [categories, setCategorys] = useState([]);
 	
     const [errorMessages, setErrorMessages] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    
 
     const handleFormSubmit = async e => {
         e.preventDefault();
@@ -37,7 +37,8 @@ export function CategoryCreateView(props) {
         useCategory.setIsDisabled(true);
 
         try {
-            const { categories } = await Services.CategoryService.getAll(abortController.signal);
+            const { categories } = await Services.CategoryService.getAll(
+                abortController.signal);
 			setCategorys(categories);
 			
         } catch (error) {
@@ -53,14 +54,13 @@ export function CategoryCreateView(props) {
 
     return (
         <>
-            <h6>Créer Category</h6>
+            <h3>Créer Category</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}
             </Components.ErrorMessages>
             <Components.CategoryForm useCategory={useCategory} 
             categories={categories} setCategorys={setCategorys}
-			 
             isDisabled={useCategory.isDisabled} 
             handleFormSubmit={handleFormSubmit}/>
         </>

@@ -1,11 +1,11 @@
-//'use client'
+
 import { useCallback, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Services } from '../services';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
 
-export function UserCreateView(props) {
+export function UserCreateView() {
     let abortController = new AbortController();
 
     const navigate = useNavigate();
@@ -15,8 +15,7 @@ export function UserCreateView(props) {
     const [countries, setcountries] = useState([]);
 	
     const [errorMessages, setErrorMessages] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-
+    
     const handleFormSubmit = async e => {
         e.preventDefault();
         useUser.setIsDisabled(true);
@@ -37,7 +36,8 @@ export function UserCreateView(props) {
         useUser.setIsDisabled(true);
 
         try {
-            const { countries } = await Services.countrieservice.getAll(abortController.signal);
+            const { countries } = await Services.countrieservice.getAll(
+                abortController.signal);
 			setcountries(countries);
 			
         } catch (error) {
@@ -53,14 +53,13 @@ export function UserCreateView(props) {
 
     return (
         <>
-            <h6>Créer User</h6>
+            <h3>Créer User</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}
             </Components.ErrorMessages>
             <Components.UserForm useUser={useUser} 
             countries={countries} setcountries={setcountries}
-			 
             isDisabled={useUser.isDisabled} 
             handleFormSubmit={handleFormSubmit}/>
         </>

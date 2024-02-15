@@ -1,11 +1,11 @@
-//'use client'
+
 import { useCallback, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Services } from '../services';
 import { Components } from '../components';
 import { Utils } from '../utils';
 
-export function CategoryListView(props) {
+export function CategoryListView() {
     let abortController = new AbortController();
 
     const { CategoryService } = Services;
@@ -18,13 +18,13 @@ export function CategoryListView(props) {
 		'category_id': {},
 		
     }
-    const tableActions = ['raad', 'edit', 'delete'];
+    const tableActions = ['edit', 'delete'];
     
     const navigate = useNavigate();
 
     const [categories, setCategorys] = useState([]);
-    const [page, setPage] = useState(1);
-    const [pageLength, setPageLength] = useState(1);
+    const [page,] = useState(1);
+    const [, setPageLength] = useState(1);
     const [isLoading, setIsLoading] = useState(true);
 
     const handleEditClick = (e, data) => {
@@ -75,7 +75,7 @@ export function CategoryListView(props) {
 
     return (
         <>
-            <h6>Liste Categorys</h6>
+            <h3>Liste Categorys</h3>
             <Components.Loader isLoading={isLoading}>
                 <Link className='btn btn-info' to='/categories/creer'>
                     <i className='icon ion-plus'></i> Ajout category

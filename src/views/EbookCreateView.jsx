@@ -1,20 +1,17 @@
-//'use client'
-import { useCallback, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Services } from '../services';
+
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
 
-export function EbookCreateView(props) {
+export function EbookCreateView() {
     let abortController = new AbortController();
 
     const navigate = useNavigate();
 
     const useEbook = Hooks.useEbook();
-
     
     const [errorMessages, setErrorMessages] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
 
     const handleFormSubmit = async e => {
         e.preventDefault();
@@ -32,25 +29,9 @@ export function EbookCreateView(props) {
         }
     }
 
-    const init = useCallback(async () => {
-        useEbook.setIsDisabled(true);
-
-        try {
-            
-        } catch (error) {
-            console.log(error);
-        }finally {
-            useEbook.setIsDisabled(false);
-        }
-    }, [])
-
-    useEffect(() => {
-        init()
-    }, [init])
-
     return (
         <>
-            <h6>Créer Ebook</h6>
+            <h3>Créer Ebook</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

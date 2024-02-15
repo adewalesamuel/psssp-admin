@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 import { Utils } from "../utils";
 
-export function PrivateView(props) {
+export function PrivateView() {
     const navigate = useNavigate();
 
     useEffect(() => {

@@ -1,20 +1,17 @@
-//'use client'
-import { useCallback, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Services } from '../services';
+
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
 
-export function CountryCreateView(props) {
+export function CountryCreateView() {
     let abortController = new AbortController();
 
     const navigate = useNavigate();
 
     const useCountry = Hooks.useCountry();
 
-    
-    const [errorMessages, setErrorMessages] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [errorMessages, setErrorMessages] = useState([]);    
 
     const handleFormSubmit = async e => {
         e.preventDefault();
@@ -32,31 +29,14 @@ export function CountryCreateView(props) {
         }
     }
 
-    const init = useCallback(async () => {
-        useCountry.setIsDisabled(true);
-
-        try {
-            
-        } catch (error) {
-            console.log(error);
-        }finally {
-            useCountry.setIsDisabled(false);
-        }
-    }, [])
-
-    useEffect(() => {
-        init()
-    }, [init])
-
     return (
         <>
-            <h6>Créer Country</h6>
+            <h3>Créer Country</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}
             </Components.ErrorMessages>
             <Components.CountryForm useCountry={useCountry} 
-             
             isDisabled={useCountry.isDisabled} 
             handleFormSubmit={handleFormSubmit}/>
         </>

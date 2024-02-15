@@ -1,11 +1,11 @@
-//'use client'
+
 import { useCallback, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Services } from '../services';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
 
-export function AdminCreateView(props) {
+export function AdminCreateView() {
     let abortController = new AbortController();
 
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ export function AdminCreateView(props) {
     const [roles, setRoles] = useState([]);
 	
     const [errorMessages, setErrorMessages] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    
 
     const handleFormSubmit = async e => {
         e.preventDefault();
@@ -37,7 +37,8 @@ export function AdminCreateView(props) {
         useAdmin.setIsDisabled(true);
 
         try {
-            const { roles } = await Services.RoleService.getAll(abortController.signal);
+            const { roles } = await Services.RoleService.getAll(
+                abortController.signal);
 			setRoles(roles);
 			
         } catch (error) {
@@ -53,14 +54,13 @@ export function AdminCreateView(props) {
 
     return (
         <>
-            <h6>Créer Admin</h6>
+            <h3>Créer Admin</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}
             </Components.ErrorMessages>
             <Components.AdminForm useAdmin={useAdmin} 
             roles={roles} setRoles={setRoles}
-			 
             isDisabled={useAdmin.isDisabled} 
             handleFormSubmit={handleFormSubmit}/>
         </>

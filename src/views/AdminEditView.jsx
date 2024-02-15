@@ -1,11 +1,11 @@
-//'use client'
+
 import { useCallback, useEffect, useState } from 'react';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
 import { useParams } from 'react-router-dom';
 import { Services } from '../services';
 
-export function AdminEditView(props) {
+export function AdminEditView() {
     let abortController = new AbortController();
 
     const {id} = useParams();
@@ -15,7 +15,7 @@ export function AdminEditView(props) {
     const [roles, setRoles] = useState([]);
 	
     const [errorMessages, setErrorMessages] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [, setIsLoading] = useState(true);
 
     const handleFormSubmit = async e => {
         e.preventDefault();
@@ -38,7 +38,8 @@ export function AdminEditView(props) {
         try {
             await useAdmin.getAdmin(id, abortController.signal);
             
-            const { roles } = await Services.RoleService.getAll(abortController.signal);
+            const { roles } = await Services.RoleService.getAll(
+                abortController.signal);
 			setRoles(roles);
 			
         } catch (error) {
@@ -55,14 +56,13 @@ export function AdminEditView(props) {
 
     return (
         <>
-            <h6 className='slim-pagetitle'>Modifier Admin</h6>
+            <h3 className='slim-pagetitle'>Modifier Admin</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}
             </Components.ErrorMessages>
             <Components.AdminForm useAdmin={useAdmin} 
             roles={roles} setRoles={setRoles}
-			 
             isDisabled={useAdmin.isDisabled} 
             handleFormSubmit={handleFormSubmit}/>
         </>

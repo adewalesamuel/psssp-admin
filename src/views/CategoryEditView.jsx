@@ -1,11 +1,11 @@
-//'use client'
+
 import { useCallback, useEffect, useState } from 'react';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
 import { useParams } from 'react-router-dom';
 import { Services } from '../services';
 
-export function CategoryEditView(props) {
+export function CategoryEditView() {
     let abortController = new AbortController();
 
     const {id} = useParams();
@@ -15,7 +15,7 @@ export function CategoryEditView(props) {
     const [categories, setCategorys] = useState([]);
 	
     const [errorMessages, setErrorMessages] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [, setIsLoading] = useState(true);
 
     const handleFormSubmit = async e => {
         e.preventDefault();
@@ -38,7 +38,8 @@ export function CategoryEditView(props) {
         try {
             await useCategory.getCategory(id, abortController.signal);
             
-            const { categories } = await Services.CategoryService.getAll(abortController.signal);
+            const { categories } = await Services.CategoryService.getAll(
+                abortController.signal);
 			setCategorys(categories);
 			
         } catch (error) {
@@ -55,14 +56,13 @@ export function CategoryEditView(props) {
 
     return (
         <>
-            <h6 className='slim-pagetitle'>Modifier Category</h6>
+            <h3 className='slim-pagetitle'>Modifier Category</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}
             </Components.ErrorMessages>
             <Components.CategoryForm useCategory={useCategory} 
             categories={categories} setCategorys={setCategorys}
-			 
             isDisabled={useCategory.isDisabled} 
             handleFormSubmit={handleFormSubmit}/>
         </>

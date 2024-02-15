@@ -1,21 +1,18 @@
-//'use client'
-import { useCallback, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Services } from '../services';
+
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
 
-export function RoleCreateView(props) {
+export function RoleCreateView() {
     let abortController = new AbortController();
 
     const navigate = useNavigate();
 
     const useRole = Hooks.useRole();
 
-    
     const [errorMessages, setErrorMessages] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-
+    
     const handleFormSubmit = async e => {
         e.preventDefault();
         useRole.setIsDisabled(true);
@@ -32,31 +29,14 @@ export function RoleCreateView(props) {
         }
     }
 
-    const init = useCallback(async () => {
-        useRole.setIsDisabled(true);
-
-        try {
-            
-        } catch (error) {
-            console.log(error);
-        }finally {
-            useRole.setIsDisabled(false);
-        }
-    }, [])
-
-    useEffect(() => {
-        init()
-    }, [init])
-
     return (
         <>
-            <h6>Créer Role</h6>
+            <h3>Créer Role</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}
             </Components.ErrorMessages>
             <Components.RoleForm useRole={useRole} 
-             
             isDisabled={useRole.isDisabled} 
             handleFormSubmit={handleFormSubmit}/>
         </>

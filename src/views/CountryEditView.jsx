@@ -1,20 +1,18 @@
-//'use client'
+
 import { useCallback, useEffect, useState } from 'react';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
 import { useParams } from 'react-router-dom';
-import { Services } from '../services';
 
-export function CountryEditView(props) {
+export function CountryEditView() {
     let abortController = new AbortController();
 
     const {id} = useParams();
 
     const useCountry = Hooks.useCountry();
-
     
     const [errorMessages, setErrorMessages] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [, setIsLoading] = useState(true);
 
     const handleFormSubmit = async e => {
         e.preventDefault();
@@ -36,8 +34,6 @@ export function CountryEditView(props) {
 
         try {
             await useCountry.getCountry(id, abortController.signal);
-            
-            
         } catch (error) {
             console.log(error);
         }finally{
@@ -52,7 +48,7 @@ export function CountryEditView(props) {
 
     return (
         <>
-            <h6 className='slim-pagetitle'>Modifier Country</h6>
+            <h3 className='slim-pagetitle'>Modifier Country</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

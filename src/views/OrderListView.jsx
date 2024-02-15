@@ -1,11 +1,11 @@
-//'use client'
+
 import { useCallback, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Services } from '../services';
 import { Components } from '../components';
 import { Utils } from '../utils';
 
-export function OrderListView(props) {
+export function OrderListView() {
     let abortController = new AbortController();
 
     const { OrderService } = Services;
@@ -19,13 +19,13 @@ export function OrderListView(props) {
 		'user_id': {},
 		
     }
-    const tableActions = ['raad', 'edit', 'delete'];
+    const tableActions = ['edit', 'delete'];
     
     const navigate = useNavigate();
 
     const [orders, setOrders] = useState([]);
-    const [page, setPage] = useState(1);
-    const [pageLength, setPageLength] = useState(1);
+    const [page,] = useState(1);
+    const [, setPageLength] = useState(1);
     const [isLoading, setIsLoading] = useState(true);
 
     const handleEditClick = (e, data) => {
@@ -76,7 +76,7 @@ export function OrderListView(props) {
 
     return (
         <>
-            <h6>Liste Orders</h6>
+            <h3>Liste Orders</h3>
             <Components.Loader isLoading={isLoading}>
                 <Link className='btn btn-info' to='/orders/creer'>
                     <i className='icon ion-plus'></i> Ajout order

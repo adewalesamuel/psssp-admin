@@ -1,20 +1,18 @@
-//'use client'
+
 import { useCallback, useEffect, useState } from 'react';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
 import { useParams } from 'react-router-dom';
-import { Services } from '../services';
 
-export function EbookEditView(props) {
+export function EbookEditView() {
     let abortController = new AbortController();
 
     const {id} = useParams();
 
     const useEbook = Hooks.useEbook();
-
     
     const [errorMessages, setErrorMessages] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [, setIsLoading] = useState(true);
 
     const handleFormSubmit = async e => {
         e.preventDefault();
@@ -36,8 +34,6 @@ export function EbookEditView(props) {
 
         try {
             await useEbook.getEbook(id, abortController.signal);
-            
-            
         } catch (error) {
             console.log(error);
         }finally{
@@ -52,7 +48,7 @@ export function EbookEditView(props) {
 
     return (
         <>
-            <h6 className='slim-pagetitle'>Modifier Ebook</h6>
+            <h3 className='slim-pagetitle'>Modifier Ebook</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

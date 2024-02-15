@@ -1,11 +1,11 @@
-//'use client'
+
 import { useCallback, useEffect, useState } from 'react';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
 import { useParams } from 'react-router-dom';
 import { Services } from '../services';
 
-export function ProductEditView(props) {
+export function ProductEditView() {
     let abortController = new AbortController();
 
     const {id} = useParams();
@@ -16,7 +16,7 @@ export function ProductEditView(props) {
 	const [categories, setCategorys] = useState([]);
 	
     const [errorMessages, setErrorMessages] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [, setIsLoading] = useState(true);
 
     const handleFormSubmit = async e => {
         e.preventDefault();
@@ -39,9 +39,11 @@ export function ProductEditView(props) {
         try {
             await useProduct.getProduct(id, abortController.signal);
             
-            const { users } = await Services.UserService.getAll(abortController.signal);
+            const { users } = await Services.UserService.getAll(
+                abortController.signal);
 			setUsers(users);
-			const { categories } = await Services.CategoryService.getAll(abortController.signal);
+			const { categories } = await Services.CategoryService.getAll(
+                abortController.signal);
 			setCategorys(categories);
 			
         } catch (error) {
@@ -58,7 +60,7 @@ export function ProductEditView(props) {
 
     return (
         <>
-            <h6 className='slim-pagetitle'>Modifier Product</h6>
+            <h3 className='slim-pagetitle'>Modifier Product</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}
@@ -66,7 +68,6 @@ export function ProductEditView(props) {
             <Components.ProductForm useProduct={useProduct} 
             users={users} setUsers={setUsers}
 			categories={categories} setCategorys={setCategorys}
-			 
             isDisabled={useProduct.isDisabled} 
             handleFormSubmit={handleFormSubmit}/>
         </>
