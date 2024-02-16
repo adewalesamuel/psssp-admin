@@ -13,7 +13,6 @@ export function UserListView() {
     const tableAttributes = {
         'fullname': {},
 		'email': {},
-		'password': {},
 		'phone_number': {},
 		'backup_number': {},
 		'whatsapp_number': {},
@@ -23,7 +22,7 @@ export function UserListView() {
 		'is_active': {},
 		'sponsor_code': {},
 		'activation_code': {},
-		'country_id': {},
+		'country_name': {},
 		
     }
     const tableActions = ['edit', 'delete'];
@@ -62,8 +61,14 @@ export function UserListView() {
         try {
             const {users} = await UserService.getAll(
                 {page: page}, abortController.signal);
+            const usersCopy = users.data.map(user => {
+                return {
+                    ...user,
+                    'country_name': user?.country?.name ?? ""
+                }
+            })
 
-            setUsers(users.data);
+            setUsers(usersCopy);
             setPageLength(users.last_page);
         } catch (error) {
             console.log(error);

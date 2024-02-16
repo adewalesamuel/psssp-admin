@@ -79,7 +79,9 @@ export function UserForm(props) {
                 </div>
 				<div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='profile_img_url'>Profile_img_url</label>
+                        <label htmlFor='profile_img_url'>
+                            Profile_img_url
+                        </label>
                         <input className='form-control' type='text' id='profile_img_url' name='profile_img_url' 
                         placeholder='Profile_img_url' value={props.useUser.profile_img_url ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
@@ -87,12 +89,14 @@ export function UserForm(props) {
                     </div>
                 </div>
 				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='is_active'>Is_active</label>
-                        <input className='form-control' type='radio' id='is_active' name='is_active' 
-                        placeholder='Is_active' value={props.useUser.is_active ?? ''}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useUser.setIs_active(e.target.value) ?? null} required/>
+                    <div className='form-check form-check-inline mb-3'>
+                        <label htmlFor='is_active' className="form-check-label cursor-pointer">
+                            Is_active
+                            <input className='form-check-input ml-3' type='checkbox' id='is_active' name='is_active' 
+                            placeholder='Is_active' value={props.useUser.is_active ?? ''}
+                            disabled={props.isDisabled} onChange={ e => 
+                                props.useUser.setIs_active(e.target.value) ?? null} required/>
+                        </label>
                     </div>
                 </div>
 				<div className='col-12'>
