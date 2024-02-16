@@ -22,6 +22,7 @@ export function CountryCreateView() {
             await useCountry.createCountry(abortController.signal);
             navigate('/countries');
         } catch (error) {
+            console.log(error)
             if ('messages' in error)
                 error.messages.then(messages => setErrorMessages(messages));
         } finally {

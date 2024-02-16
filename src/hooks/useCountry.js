@@ -12,7 +12,7 @@ export const useCountry = () => {
     const [isDisabled, setIsDisabled] = useState(false);
 
     const getCountry = (countryId, signal) => {        
-        return Services.countrieservice.getById(countryId, signal)
+        return Services.CountryService.getById(countryId, signal)
         .then(response => {
             fillCountry(response.country);
             setIsDisabled(false);
@@ -28,7 +28,7 @@ export const useCountry = () => {
 		
         };
 
-        return Services.countrieservice.create(JSON.stringify(payload), signal);
+        return Services.CountryService.create(JSON.stringify(payload), signal);
     }
     const updateCountry = (countryId, signal) => {
         const payload = {
@@ -39,10 +39,10 @@ export const useCountry = () => {
 		
         };
 
-        return Services.countrieservice.update(countryId, JSON.stringify(payload), signal);
+        return Services.CountryService.update(countryId, JSON.stringify(payload), signal);
     }
     const deleteCountry = (countryId, signal) => {
-        return Services.countrieservice.destroy(countryId, signal);
+        return Services.CountryService.destroy(countryId, signal);
     }
     const fillCountry = (country) => {
         setId(country.id);

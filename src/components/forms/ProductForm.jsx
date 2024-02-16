@@ -7,6 +7,15 @@ export function ProductForm(props) {
             <div className='row'>
                 <div className='col-12'>
                     <div className='form-group'>
+                        <label htmlFor='img_url'>Img_url</label>
+                        <input className='form-control' type='text' id='img_url' name='img_url' 
+                        placeholder='Img_url' value={props.useProduct.img_url ?? ''}
+                        disabled={props.isDisabled} onChange={ e => 
+                            props.useProduct.setImg_url(e.target.value) ?? null} required/>
+                    </div>
+                </div>
+                <div className='col-12'>
+                    <div className='form-group'>
                         <label htmlFor='name'>Name</label>
                         <input className='form-control' type='text' id='name' name='name' 
                         placeholder='Name' value={props.useProduct.name ?? ''}
@@ -16,20 +25,11 @@ export function ProductForm(props) {
                 </div>
 				<div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='slug'>Slug</label>
-                        <input className='form-control' type='text' id='slug' name='slug' 
-                        placeholder='Slug' value={props.useProduct.slug ?? ''}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useProduct.setSlug(e.target.value) ?? null} required/>
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
                         <label htmlFor='description'>Description</label>
-                        <input className='form-control' type='text' id='description' name='description' 
-                        placeholder='Description' value={props.useProduct.description ?? ''}
+                        <textarea className='form-control' type='text' id='description' name='description' 
+                        placeholder='Description' value={props.useProduct.description ?? ''} rows={5}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useProduct.setDescription(e.target.value) ?? null} required/>
+                            props.useProduct.setDescription(e.target.value) ?? null} required></textarea>
                     </div>
                 </div>
 				<div className='col-12'>
@@ -39,15 +39,6 @@ export function ProductForm(props) {
                         placeholder='Price' value={props.useProduct.price ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
                             props.useProduct.setPrice(e.target.value) ?? null} required/>
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='download_code'>Download_code</label>
-                        <input className='form-control' type='text' id='download_code' name='download_code' 
-                        placeholder='Download_code' value={props.useProduct.download_code ?? ''}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useProduct.setDownload_code(e.target.value) ?? null} required/>
                     </div>
                 </div>
 				<div className='col-12'>
@@ -70,52 +61,28 @@ export function ProductForm(props) {
                 </div>
 				<div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='img_url'>Img_url</label>
-                        <input className='form-control' type='text' id='img_url' name='img_url' 
-                        placeholder='Img_url' value={props.useProduct.img_url ?? ''}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useProduct.setImg_url(e.target.value) ?? null} required/>
+                        <label htmlFor='category_id'>Category</label>
+                        <select className='select2 form-control' id='category_id' name='category_id' 
+                        value={props.useProduct.category_id ?? ''} disabled={props.isDisabled} 
+                        onChange={ e => props.useProduct.setCategory_id(e.target.value) ?? null}>
+                            <option hidden>Choisissez une Categorie</option>
+                             {
+                                props.categories.map(category => {
+                                    return (<option key={Math.random()} value={category.id ?? ''}>
+                                                {category.name}
+                                            </option>)
+                                })
+                            }  
+                        </select>
                     </div>
-                </div>
-				<div className='col-12'>
+                </div> 
+                <div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='file_url'>File_url</label>
                         <input className='form-control' type='text' id='file_url' name='file_url' 
                         placeholder='File_url' value={props.useProduct.file_url ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
                             props.useProduct.setFile_url(e.target.value) ?? null} required/>
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='user_id'>User_id</label>
-                        <select className='select2 form-control' id='user_id' name='user_id' 
-                        value={props.useProduct.user_id ?? ''} disabled={props.isDisabled} 
-                        onChange={ e => props.useProduct.setUser_id(e.target.value) ?? null}>
-                            {/* {
-                                props.items.map(item => {
-                                    return (<option key={Math.random()} value={item.id ?? ''}>
-                                                {item.name}
-                                            </option>)
-                                })
-                            }  */}
-                        </select>
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='category_id'>Category_id</label>
-                        <select className='select2 form-control' id='category_id' name='category_id' 
-                        value={props.useProduct.category_id ?? ''} disabled={props.isDisabled} 
-                        onChange={ e => props.useProduct.setCategory_id(e.target.value) ?? null}>
-                            {/* {
-                                props.items.map(item => {
-                                    return (<option key={Math.random()} value={item.id ?? ''}>
-                                                {item.name}
-                                            </option>)
-                                })
-                            }  */}
-                        </select>
                     </div>
                 </div>
 				

@@ -12,7 +12,7 @@ export const useProduct = () => {
 	const [current_stock, setCurrent_stock] = useState('');
 	const [img_url, setImg_url] = useState('');
 	const [file_url, setFile_url] = useState('');
-	const [user_id, setUser_id] = useState('');
+	const [user_id, setUser_id] = useState(null);
 	const [category_id, setCategory_id] = useState('');
 	
     const [errors, setErrors] = useState([]);
