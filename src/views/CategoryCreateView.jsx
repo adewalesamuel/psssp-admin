@@ -54,7 +54,7 @@ export function CategoryCreateView() {
 
     return (
         <>
-            <h3>Créer Category</h3>
+            <h3>Créer une categorie</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

@@ -13,7 +13,7 @@ export function OrderEditView() {
     const useOrder = Hooks.useOrder();
 
     const [products, setProducts] = useState([]);
-	const [users, setUsers] = useState([]);
+	const [user, setUser] = useState([]);
 	
     const [errorMessages, setErrorMessages] = useState([]);
     const [, setIsLoading] = useState(true);
@@ -37,15 +37,15 @@ export function OrderEditView() {
         useOrder.setIsDisabled(true);
 
         try {
-            await useOrder.getOrder(id, abortController.signal);
+            const {order} = await useOrder.getOrder(id, abortController.signal);
             
             const { products } = await Services.ProductService.getAll(
                 abortController.signal);
 			setProducts(products);
-			const { users } = await Services.UserService.getAll(
-                abortController.signal);
-			setUsers(users);
-			
+
+			const { user } = await Services.UserService.getById(
+                order.user_id, abortController.signal);
+			setUser(user);
         } catch (error) {
             console.log(error);
         }finally{
@@ -60,15 +60,14 @@ export function OrderEditView() {
 
     return (
         <>
-            <h3 className='slim-pagetitle'>Modifier Order</h3>
+            <h3 className='slim-pagetitle'>Modifier une commande</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}
             </Components.ErrorMessages>
             <Components.OrderForm useOrder={useOrder} 
             products={products} setProducts={setProducts}
-			users={users} setUsers={setUsers}
-            isDisabled={useOrder.isDisabled} 
+			user={user} isDisabled={useOrder.isDisabled} 
             handleFormSubmit={handleFormSubmit}/>
         </>
     )

@@ -31,13 +31,12 @@ export function EbookCreateView() {
 
     return (
         <>
-            <h3>Créer Ebook</h3>
+            <h3>Créer un ebook</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}
             </Components.ErrorMessages>
             <Components.EbookForm useEbook={useEbook} 
-             
             isDisabled={useEbook.isDisabled} 
             handleFormSubmit={handleFormSubmit}/>
         </>

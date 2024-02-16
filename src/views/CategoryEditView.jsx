@@ -56,7 +56,7 @@ export function CategoryEditView() {
 
     return (
         <>
-            <h3 className='slim-pagetitle'>Modifier Category</h3>
+            <h3 className='slim-pagetitle'>Modifier Categorie</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

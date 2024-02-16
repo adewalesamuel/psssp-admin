@@ -31,7 +31,7 @@ export function RoleCreateView() {
 
     return (
         <>
-            <h3>Créer Role</h3>
+            <h3>Créer un role</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

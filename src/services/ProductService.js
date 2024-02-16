@@ -5,7 +5,7 @@ const  ENPOINTS = {
 };
 
 const getAll = (params, signal) => {
-    return Api.get(`${ENPOINTS.Product}?page=${params?.page ?? 1}`, signal)
+    return Api.get(`${ENPOINTS.Product}?page=${params?.page ?? ''}`, signal)
 }
 
 const getById = (id, signal) => {

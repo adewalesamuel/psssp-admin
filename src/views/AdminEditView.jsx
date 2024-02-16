@@ -56,7 +56,7 @@ export function AdminEditView() {
 
     return (
         <>
-            <h3 className='slim-pagetitle'>Modifier Admin</h3>
+            <h3 className='slim-pagetitle'>Modifier un administrateur</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

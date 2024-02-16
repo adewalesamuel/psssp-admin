@@ -15,8 +15,8 @@ export function OrderListView() {
 		'quantity': {},
 		'amount': {},
 		'status': {},
-		'product_id': {},
-		'user_id': {},
+		'product_name': {},
+		'user_name': {},
 		
     }
     const tableActions = ['edit', 'delete'];
@@ -55,8 +55,13 @@ export function OrderListView() {
         try {
             const {orders} = await OrderService.getAll(
                 {page: page}, abortController.signal);
+            const ordersData = orders.data.map(order => ({
+                ...order,
+                product_name: order?.product?.name,
+                user_name: order?.user?.fullname
+            }))
 
-            setOrders(orders.data);
+            setOrders(ordersData);
             setPageLength(orders.last_page);
         } catch (error) {
             console.log(error);
@@ -76,10 +81,10 @@ export function OrderListView() {
 
     return (
         <>
-            <h3>Liste Orders</h3>
+            <h3>Liste des commandes</h3>
             <Components.Loader isLoading={isLoading}>
                 <Link className='btn btn-info' to='/orders/create'>
-                    <i className='icon ion-plus'></i> Ajout order
+                    <i className='icon ion-plus'></i> Ajouter une commande
                 </Link>
                 <div className='table-responsive'>
                     <Components.Table controllers={{handleEditClick, handleDeleteClick}} 

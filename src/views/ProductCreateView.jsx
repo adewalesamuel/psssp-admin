@@ -58,7 +58,7 @@ export function ProductCreateView() {
 
     return (
         <>
-            <h3>Créer Product</h3>
+            <h3>Créer une publication</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

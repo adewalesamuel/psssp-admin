@@ -51,7 +51,7 @@ export function PermissionEditView() {
 
     return (
         <>
-            <h3 className='slim-pagetitle'>Modifier Permission</h3>
+            <h3 className='slim-pagetitle'>Modifier une permission</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

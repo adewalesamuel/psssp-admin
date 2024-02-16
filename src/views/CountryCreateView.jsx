@@ -32,7 +32,7 @@ export function CountryCreateView() {
 
     return (
         <>
-            <h3>Créer Country</h3>
+            <h3>Créer un pays</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

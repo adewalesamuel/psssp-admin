@@ -73,10 +73,10 @@ export function RoleListView() {
 
     return (
         <>
-            <h3>Liste Roles</h3>
+            <h3>Liste des roles</h3>
             <Components.Loader isLoading={isLoading}>
                 <Link className='btn btn-info' to='/roles/create'>
-                    <i className='icon ion-plus'></i> Ajout role
+                    <i className='icon ion-plus'></i> Ajouter un role
                 </Link>
                 <div className='table-responsive'>
                     <Components.Table controllers={{handleEditClick, handleDeleteClick}} 

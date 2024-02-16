@@ -51,7 +51,7 @@ export function RoleEditView() {
 
     return (
         <>
-            <h3 className='slim-pagetitle'>Modifier Role</h3>
+            <h3 className='slim-pagetitle'>Modifier un role</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

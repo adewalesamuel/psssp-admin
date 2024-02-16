@@ -93,28 +93,10 @@ export function UserForm(props) {
                         <label htmlFor='is_active' className="form-check-label cursor-pointer">
                             Is_active
                             <input className='form-check-input ml-3' type='checkbox' id='is_active' name='is_active' 
-                            placeholder='Is_active' value={props.useUser.is_active ?? ''}
+                            placeholder='Is_active' checked={Boolean(props.useUser.is_active)}
                             disabled={props.isDisabled} onChange={ e => 
-                                props.useUser.setIs_active(e.target.value) ?? null} required/>
+                                props.useUser.setIs_active(!Boolean(props.useUser.is_active)) ?? null} required/>
                         </label>
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='sponsor_code'>Sponsor_code</label>
-                        <input className='form-control' type='text' id='sponsor_code' name='sponsor_code' 
-                        placeholder='Sponsor_code' value={props.useUser.sponsor_code ?? ''}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useUser.setSponsor_code(e.target.value) ?? null} required/>
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='activation_code'>Activation_code</label>
-                        <input className='form-control' type='text' id='activation_code' name='activation_code' 
-                        placeholder='Activation_code' value={props.useUser.activation_code ?? ''}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useUser.setActivation_code(e.target.value) ?? null} required/>
                     </div>
                 </div>
 				<div className='col-12'>
@@ -123,13 +105,14 @@ export function UserForm(props) {
                         <select className='select2 form-control' id='country_id' name='country_id' 
                         value={props.useUser.country_id ?? ''} disabled={props.isDisabled} 
                         onChange={ e => props.useUser.setCountry_id(e.target.value) ?? null}>
-                            {/* {
-                                props.items.map(item => {
-                                    return (<option key={Math.random()} value={item.id ?? ''}>
-                                                {item.name}
+                            <option hidden>Choisissez un pays</option>
+                            {
+                                props.countries.map(country => {
+                                    return (<option key={Math.random()} value={country.id ?? ''}>
+                                                {country.name}
                                             </option>)
                                 })
-                            }  */}
+                            } 
                         </select>
                     </div>
                 </div>

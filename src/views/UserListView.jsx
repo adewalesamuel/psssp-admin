@@ -88,10 +88,10 @@ export function UserListView() {
 
     return (
         <>
-            <h3>Liste Users</h3>
+            <h3>Liste des utilisateurs</h3>
             <Components.Loader isLoading={isLoading}>
                 <Link className='btn btn-info' to='/users/create'>
-                    <i className='icon ion-plus'></i> Ajout user
+                    <i className='icon ion-plus'></i> Ajouter un utilisateur
                 </Link>
                 <div className='table-responsive'>
                     <Components.Table controllers={{handleEditClick, handleDeleteClick}} 

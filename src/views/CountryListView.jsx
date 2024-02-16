@@ -74,10 +74,10 @@ export function CountryListView() {
 
     return (
         <>
-            <h3>Liste countries</h3>
+            <h3>Liste des pays</h3>
             <Components.Loader isLoading={isLoading}>
                 <Link className='btn btn-info' to='/countries/create'>
-                    <i className='icon ion-plus'></i> Ajout country
+                    <i className='icon ion-plus'></i> Ajouter un pays
                 </Link>
                 <div className='table-responsive'>
                     <Components.Table controllers={{handleEditClick, handleDeleteClick}} 

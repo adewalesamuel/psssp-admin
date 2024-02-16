@@ -1,6 +1,6 @@
 
 import { useCallback, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Services } from '../services';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
@@ -10,10 +10,13 @@ export function OrderCreateView() {
 
     const navigate = useNavigate();
 
+    const {id} = useParams();
+
     const useOrder = Hooks.useOrder();
 
+
     const [products, setProducts] = useState([]);
-	const [users, setUsers] = useState([]);
+	const [user, setUser] = useState([]);
 	
     const [errorMessages, setErrorMessages] = useState([]);
     
@@ -41,10 +44,11 @@ export function OrderCreateView() {
             const { products } = await Services.ProductService.getAll(
                 abortController.signal);
 			setProducts(products);
-			const { users } = await Services.UserService.getAll(
-                abortController.signal);
-			setUsers(users);
-			
+			const { user } = await Services.UserService.getById(
+                id,abortController.signal);
+			setUser(user);
+
+            useOrder.setUser_id(user.id);
         } catch (error) {
             console.log(error);
         }finally {
@@ -58,15 +62,14 @@ export function OrderCreateView() {
 
     return (
         <>
-            <h3>Créer Order</h3>
+            <h3>Créer une commande</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}
             </Components.ErrorMessages>
             <Components.OrderForm useOrder={useOrder} 
             products={products} setProducts={setProducts}
-			users={users} setUsers={setUsers}
-            isDisabled={useOrder.isDisabled} 
+			user={user} isDisabled={useOrder.isDisabled} 
             handleFormSubmit={handleFormSubmit}/>
         </>
     )

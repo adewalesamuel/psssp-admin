@@ -60,7 +60,7 @@ export function ProductEditView() {
 
     return (
         <>
-            <h3 className='slim-pagetitle'>Modifier Product</h3>
+            <h3 className='slim-pagetitle'>Modifier une publication</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

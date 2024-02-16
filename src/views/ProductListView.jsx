@@ -81,10 +81,10 @@ export function ProductListView() {
 
     return (
         <>
-            <h3>Liste Products</h3>
+            <h3>Liste des publications</h3>
             <Components.Loader isLoading={isLoading}>
                 <Link className='btn btn-info' to='/products/create'>
-                    <i className='icon ion-plus'></i> Ajout product
+                    <i className='icon ion-plus'></i> Ajouter une publication
                 </Link>
                 <div className='table-responsive'>
                     <Components.Table controllers={{handleEditClick, handleDeleteClick}} 

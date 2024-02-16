@@ -74,10 +74,10 @@ export function AdminListView() {
 
     return (
         <>
-            <h3>Liste Admins</h3>
+            <h3>Liste des administrateurs</h3>
             <Components.Loader isLoading={isLoading}>
                 <Link className='btn btn-info' to='/admins/create'>
-                    <i className='icon ion-plus'></i> Ajout admin
+                    <i className='icon ion-plus'></i> Ajouter un administrateur
                 </Link>
                 <div className='table-responsive'>
                     <Components.Table controllers={{handleEditClick, handleDeleteClick}} 

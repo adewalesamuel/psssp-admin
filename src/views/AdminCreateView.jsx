@@ -54,7 +54,7 @@ export function AdminCreateView() {
 
     return (
         <>
-            <h3>Créer Admin</h3>
+            <h3>Créer un administrateur</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

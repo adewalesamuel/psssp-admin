@@ -5,6 +5,7 @@ import { Services } from "../services";
 import { Utils } from "../utils";
 import { useNavigate } from 'react-router-dom';
 import logoLight from '../assets/images/logo-light.png';
+import logo from '../assets/images/logo.png';
 
 export function LoginView() {
     const abortController = new AbortController();
@@ -48,17 +49,17 @@ export function LoginView() {
 
     return (
         <Layouts.AuthLayout>
-            <div className="row">
-                <div className="col-lg-12">
-                    <div className="text-center mb-5">
-                        <a href="index.html" className="logo">
-                            <img src={logoLight} height="24" alt="logo"/>
-                        </a>
-                    </div>
-                </div>
-            </div>
             <div className="col-lg-5 mx-auto">
                 <div className="card">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <div className="text-center py-2">
+                                <a href="index.html" className="logo">
+                                    <img src={logo} height="100" alt="logo"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <div className="card-body p-4">
                         <div className="p-2">
                             <h5 className="mb-5 text-center">

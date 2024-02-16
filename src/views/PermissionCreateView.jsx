@@ -33,13 +33,12 @@ export function PermissionCreateView() {
 
     return (
         <>
-            <h3>Créer Permission</h3>
+            <h3>Créer une permission</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}
             </Components.ErrorMessages>
             <Components.PermissionForm usePermission={usePermission} 
-             
             isDisabled={usePermission.isDisabled} 
             handleFormSubmit={handleFormSubmit}/>
         </>

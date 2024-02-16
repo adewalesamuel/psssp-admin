@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Services } from '../services';
 
 export function UserEditView() {
@@ -56,8 +56,10 @@ export function UserEditView() {
 
     return (
         <>
-            <h3 className='slim-pagetitle'>Modifier User</h3>
-
+            <h3 className='slim-pagetitle'>Modifier un utilisateur</h3>
+            <Link className='btn btn-info mb-3' to={`/users/${id}/orders/create`}>
+                <i className='icon ion-plus'></i> Créer une commande
+            </Link>
             <Components.ErrorMessages>
                 {errorMessages}
             </Components.ErrorMessages>

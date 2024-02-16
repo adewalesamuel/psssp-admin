@@ -48,7 +48,7 @@ export function CountryEditView() {
 
     return (
         <>
-            <h3 className='slim-pagetitle'>Modifier Country</h3>
+            <h3 className='slim-pagetitle'>Modifier un pays</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

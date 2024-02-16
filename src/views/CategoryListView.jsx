@@ -55,7 +55,7 @@ export function CategoryListView() {
             const {categories} = await CategoryService.getAll(
                 {page: page}, abortController.signal);
 
-            setCategorys(categories);
+            setCategorys(categories.data);
             setPageLength(categories.last_page);
         } catch (error) {
             console.log(error);
@@ -75,10 +75,10 @@ export function CategoryListView() {
 
     return (
         <>
-            <h3>Liste Categorys</h3>
+            <h3>Liste des categories</h3>
             <Components.Loader isLoading={isLoading}>
                 <Link className='btn btn-info' to='/categories/create'>
-                    <i className='icon ion-plus'></i> Ajout category
+                    <i className='icon ion-plus'></i> Ajouter une categorie
                 </Link>
                 <div className='table-responsive'>
                     <Components.Table controllers={{handleEditClick, handleDeleteClick}} 

@@ -79,10 +79,10 @@ export function EbookListView() {
 
     return (
         <>
-            <h3>Liste Ebooks</h3>
+            <h3>Liste des Ebooks</h3>
             <Components.Loader isLoading={isLoading}>
                 <Link className='btn btn-info' to='/ebooks/create'>
-                    <i className='icon ion-plus'></i> Ajout ebook
+                    <i className='icon ion-plus'></i> Ajouter un ebook
                 </Link>
                 <div className='table-responsive'>
                     <Components.Table controllers={{handleEditClick, handleDeleteClick}} 

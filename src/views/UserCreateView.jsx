@@ -53,7 +53,7 @@ export function UserCreateView() {
 
     return (
         <>
-            <h3>Créer User</h3>
+            <h3>Créer un utilisateur</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

@@ -48,7 +48,7 @@ export function EbookEditView() {
 
     return (
         <>
-            <h3 className='slim-pagetitle'>Modifier Ebook</h3>
+            <h3 className='slim-pagetitle'>Modifier un ebook</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Utils } from "../utils";
 import { Services } from "../services";
 import logoSmDark from '../assets/images/logo-sm-dark.png';
+import logo from '../assets/images/logo.png';
 import logoDark from '../assets/images/logo-dark.png';
 import logoSmLight from '../assets/images/logo-sm-light.png';
 import logoLight from '../assets/images/logo-light.png';
@@ -17,11 +18,14 @@ export function Header() {
 
     const navigate = useNavigate();
 
-    const logout = event => {
+    const logout = async event => {
         event.preventDefault();
 
-        Services.AuthService.logout(abortController.signal)
-        navigate('/login', {replace: true});
+        if (confirm('Vouvlez vous vraiment vous déconneter?')) {
+            Utils.Auth.removeSessionToken();
+            Services.AuthService.logout(abortController.signal);
+            navigate('/login', {replace:true});
+        }
     }
     return (
         <header id="page-topbar">
@@ -33,7 +37,7 @@ export function Header() {
                                 <img src={logoSmDark} alt="" height="22" />
                             </span>
                             <span className="logo-lg">
-                                <img src={logoDark} alt="" height="20" />
+                                <img src={logo} alt="" height="70" />
                             </span>
                         </Link>
 
@@ -47,14 +51,15 @@ export function Header() {
                         </Link>
                     </div>
 
-                    <button type="button" className="btn btn-sm px-3 font-size-24 header-item
-                    waves-effect" id="vertical-menu-btn">
+                    <button type="button" className="btn btn-sm px-3 font-size-24 
+                    -itemwaves-effect" id="vertical-menu-btn">
                         <i className="mdi mdi-backburger"></i>
                     </button>
 
                     <form className="app-search d-none d-lg-block">
                         <div className="position-relative">
-                            <input type="text" className="form-control" placeholder="Rechercher..." />
+                            <input type="text" className="form-control" 
+                            placeholder="Rechercher..." />
                             <span className="mdi mdi-magnify"></span>
                         </div>
                     </form>
@@ -63,12 +68,12 @@ export function Header() {
                 <div className="d-flex">
 
                     <div className="dropdown d-inline-block d-lg-none ml-2">
-                        <button type="button" className="btn header-item noti-icon waves-effect" 
-                        id="page-header-search-dropdown">
+                        <button type="button" className="btn header-item noti-icon 
+                        waves-effect" id="page-header-search-dropdown">
                             <i className="mdi mdi-magnify"></i>
                         </button>
-                        <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
-                            aria-labelledby="page-header-search-dropdown">
+                        <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right 
+                        p-0" aria-labelledby="page-header-search-dropdown">
                 
                             <form className="p-3">
                                 <div className="form-group m-0">
@@ -88,7 +93,7 @@ export function Header() {
 
                     <div className="dropdown d-inline-block">
                         <button type="button" className="btn header-item waves-effect" 
-                        id="page-header-user-dropdown">
+                        id="page-header-user-dropdown" onClick={() => Utils.Dom.toggleElement('#dropdownMenu')}>
                             <img className="rounded-circle header-profile-user" src={userProfileImg}
                                 alt="Header Avatar" />
                             <span className="d-none d-sm-inline-block ml-1">
@@ -96,9 +101,11 @@ export function Header() {
                             </span>
                             <i className="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                         </button>
-                        <div className="dropdown-menu dropdown-menu-right">
-                            <a className="dropdown-item" href="##"><i className="mdi mdi-face-profile 
-                            font-size-16 align-middle mr-1"></i> Profile</a>
+                        <div className="dropdown-menu dropdown-menu-right" id='dropdownMenu'>
+                           {/* <a className="dropdown-item" href="##">
+                                <i className="mdi mdi-face-profile font-size-16 align-middle mr-1"></i> 
+                                Profile
+                            </a>*/}
                             <div className="dropdown-divider"></div>
                             <a className="dropdown-item" href="#" onClick={logout}>
                                 <i className="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout
