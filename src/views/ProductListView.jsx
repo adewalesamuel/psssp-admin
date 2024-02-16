@@ -11,17 +11,13 @@ export function ProductListView() {
     const { ProductService } = Services;
 
     const tableAttributes = {
+		'category_name': {},
         'name': {},
-		'slug': {},
-		'description': {},
 		'price': {},
 		'download_code': {},
 		'initial_stock': {},
 		'current_stock': {},
-		'img_url': {},
-		'file_url': {},
-		'user_id': {},
-		'category_id': {},
+        'img_url': {},
 		
     }
     const tableActions = ['edit', 'delete'];
@@ -60,8 +56,12 @@ export function ProductListView() {
         try {
             const {products} = await ProductService.getAll(
                 {page: page}, abortController.signal);
+            const productsData = products.data.map(product => ({
+                category_name: product?.category?.name,
+                ...product,
+            }))
 
-            setProducts(products.data);
+            setProducts(productsData);
             setPageLength(products.last_page);
         } catch (error) {
             console.log(error);

@@ -54,7 +54,7 @@ export function CountryListView() {
             const {countries} = await CountryService.getAll(
                 {page: page}, abortController.signal);
 
-            setcountries(countries);
+            setcountries(countries.data);
             setPageLength(countries.last_page);
         } catch (error) {
             console.log(error);
