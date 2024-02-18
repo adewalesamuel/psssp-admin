@@ -14,7 +14,6 @@ export function CountryListView() {
         'name': {},
 		'code': {},
 		'phone_code': {},
-		'flag_icon_url': {},
 		
     }
     const tableActions = ['edit', 'delete'];

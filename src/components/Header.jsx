@@ -21,7 +21,7 @@ export function Header() {
     const logout = async event => {
         event.preventDefault();
 
-        if (confirm('Vouvlez vous vraiment vous déconneter?')) {
+        if (confirm('Vous êtes sur le point de vous déconnecter?')) {
             Utils.Auth.removeSessionToken();
             Services.AuthService.logout(abortController.signal);
             navigate('/login', {replace:true});
@@ -108,7 +108,8 @@ export function Header() {
                             </a>*/}
                             <div className="dropdown-divider"></div>
                             <a className="dropdown-item" href="#" onClick={logout}>
-                                <i className="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout
+                                <i className="mdi mdi-logout font-size-16 align-middle mr-1"> </i> 
+                                Deconnexion
                             </a>
                         </div>
                     </div>

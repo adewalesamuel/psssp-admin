@@ -11,13 +11,14 @@ export function ProductListView() {
     const { ProductService } = Services;
 
     const tableAttributes = {
-		'category_name': {},
+        'image': {},
         'name': {},
+		'category_name': {},
 		'price': {},
 		'download_code': {},
 		'initial_stock': {},
 		'current_stock': {},
-        'img_url': {},
+        'product_link': {},
 		
     }
     const tableActions = ['edit', 'delete'];
@@ -57,8 +58,14 @@ export function ProductListView() {
             const {products} = await ProductService.getAll(
                 {page: page}, abortController.signal);
             const productsData = products.data.map(product => ({
+                image: ((product.img_url && product.img_url !== '') ?
+                <img src={product.img_url} alt={product.slug ?? ''} 
+                height={"70px"}/> : '----'),
                 category_name: product?.category?.name,
                 ...product,
+                product_link:( (product.file_url && product.file_url !== '') ?
+                <a href={product.file_url} download={product.file_url} 
+                className="btn btn-link">Télécharger</a> : null)
             }))
 
             setProducts(productsData);

@@ -83,9 +83,6 @@ export function OrderListView() {
         <>
             <h3>Liste des commandes</h3>
             <Components.Loader isLoading={isLoading}>
-                <Link className='btn btn-info' to='/orders/create'>
-                    <i className='icon ion-plus'></i> Ajouter une commande
-                </Link>
                 <div className='table-responsive'>
                     <Components.Table controllers={{handleEditClick, handleDeleteClick}} 
                     tableAttributes={tableAttributes} tableActions={tableActions} 

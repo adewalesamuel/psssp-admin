@@ -1,17 +1,38 @@
-
+import { Components } from '../../components';
+import { Hooks } from '../../hooks';
+import { useEffect } from 'react';
 
 export function ProductForm(props) {
+    const useImageFile = Hooks.useFile();
+    const useFile = Hooks.useFile();
+
+    useEffect(() => {
+        const { file_url } = useImageFile;
+
+        if (!file_url || file_url === '') return;
+
+        props.useProduct.setImg_url(file_url);
+    }, [useImageFile.file_url]);
+
+    useEffect(() => {
+        const { file_url } = useFile;
+
+        if (!file_url || file_url === '') return;
+
+        props.useProduct.setFile_url(file_url);
+    }, [useFile.file_url]);
+
     return (
         <form className='form card col-12 col-md-6 p-4'
         onSubmit={props.handleFormSubmit ?? null}>
             <div className='row'>
-                <div className='col-12'>
+                <div className='col-12 col-sm-5'>
                     <div className='form-group'>
-                        <label htmlFor='img_url'>Img_url</label>
-                        <input className='form-control' type='text' id='img_url' name='img_url' 
-                        placeholder='Img_url' value={props.useProduct.img_url ?? ''}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useProduct.setImg_url(e.target.value) ?? null} required/>
+                        <label htmlFor='profile_img_url'>
+                            Image de profil
+                        </label>
+                        <Components.ImageFileInput img_url={props.useProduct.img_url}
+                        handleFileChange={useImageFile.handleFileChange}/>
                     </div>
                 </div>
                 <div className='col-12'>
@@ -78,11 +99,17 @@ export function ProductForm(props) {
                 </div> 
                 <div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='file_url'>File_url</label>
-                        <input className='form-control' type='text' id='file_url' name='file_url' 
-                        placeholder='File_url' value={props.useProduct.file_url ?? ''}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useProduct.setFile_url(e.target.value) ?? null} required/>
+                        <label htmlFor="basicInputFile">Fichier</label>
+                        <div className="custom-file">
+                            <input type="file" className="custom-file-input" id="inputGroupFile01" 
+                            role='button' onChange={e => useFile.handleFileChange(e.target.files[0])}
+                            accept=".azw,.csv,.doc,.docx,.epub,.html,.htm,.odp,.ods,.odt,.pdf,.xhtml,.xls,.xlsx,.xml"/>
+                            <label className="custom-file-label overflow-hidden" htmlFor="inputGroupFile01"
+                            style={{whiteSpace: 'nowrap'}}>
+                                {(props.useProduct.file_url && props.useProduct.file_url !== "" ) ?
+                                props.useProduct.file_url : "Aucun fichier sélectionné"}
+                            </label>
+                        </div>
                     </div>
                 </div>
 				

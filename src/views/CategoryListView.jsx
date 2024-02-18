@@ -13,9 +13,7 @@ export function CategoryListView() {
     const tableAttributes = {
         'name': {},
 		'slug': {},
-		'description': {},
-		'img_url': {},
-		'category_id': {},
+		'categorie_parente': {},
 		
     }
     const tableActions = ['edit', 'delete'];
@@ -54,8 +52,12 @@ export function CategoryListView() {
         try {
             const {categories} = await CategoryService.getAll(
                 {page: page}, abortController.signal);
+            const categoriesData = categories.data.map(category => ({
+                ...category,
+                categorie_parente: category?.category?.name ?? ""
+            }))
 
-            setCategorys(categories.data);
+            setCategorys(categoriesData);
             setPageLength(categories.last_page);
         } catch (error) {
             console.log(error);

@@ -18,7 +18,6 @@ export function UserListView() {
 		'whatsapp_number': {},
 		'telegram_number': {},
 		'shop_name': {},
-		'profile_img_url': {},
 		'is_active': {},
 		'sponsor_code': {},
 		'activation_code': {},

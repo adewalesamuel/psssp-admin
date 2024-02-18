@@ -32,15 +32,6 @@ export function CountryForm(props) {
                             props.useCountry.setPhone_code(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='flag_icon_url'>Flag_icon_url</label>
-                        <input className='form-control' type='text' id='flag_icon_url' name='flag_icon_url' 
-                        placeholder='Flag_icon_url' value={props.useCountry.flag_icon_url ?? ''}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useCountry.setFlag_icon_url(e.target.value) ?? null} required/>
-                    </div>
-                </div>
 				
                 <div className='col-12 text-right'>
                     <button disabled={props.isDisabled ?? false} type='button' 

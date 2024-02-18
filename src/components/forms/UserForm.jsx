@@ -1,10 +1,31 @@
-
+import { Components } from '../../components';
+import { Hooks } from '../../hooks';
+import { useEffect } from 'react';
 
 export function UserForm(props) {
+    const useFile = Hooks.useFile();
+
+    useEffect(() => {
+        const { file_url } = useFile;
+
+        if (!file_url || file_url === '') return;
+
+        props.useUser.setProfile_img_url(file_url);
+    }, [useFile.file_url]);
+
     return (
         <form className='form card col-12 col-md-6 p-4'
         onSubmit={props.handleFormSubmit ?? null}>
             <div className='row'>
+                <div className='col-12 col-sm-5'>
+                    <div className='form-group'>
+                        <label htmlFor='profile_img_url'>
+                            Image de profil
+                        </label>
+                        <Components.ImageFileInput img_url={props.useUser.profile_img_url}
+                        handleFileChange={useFile.handleFileChange}/>
+                    </div>
+                </div>
                 <div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='fullname'>Fullname</label>
@@ -75,17 +96,6 @@ export function UserForm(props) {
                         placeholder='Shop_name' value={props.useUser.shop_name ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
                             props.useUser.setShop_name(e.target.value) ?? null} required/>
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='profile_img_url'>
-                            Profile_img_url
-                        </label>
-                        <input className='form-control' type='text' id='profile_img_url' name='profile_img_url' 
-                        placeholder='Profile_img_url' value={props.useUser.profile_img_url ?? ''}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useUser.setProfile_img_url(e.target.value) ?? null} required/>
                     </div>
                 </div>
 				<div className='col-12'>

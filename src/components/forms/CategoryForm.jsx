@@ -7,15 +7,6 @@ export function CategoryForm(props) {
             <div className='row'>
                 <div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='img_url'>Img_url</label>
-                        <input className='form-control' type='text' id='img_url' name='img_url' 
-                        placeholder='Img_url' value={props.useCategory.img_url ?? ''}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useCategory.setImg_url(e.target.value) ?? null} required/>
-                    </div>
-                </div>
-                <div className='col-12'>
-                    <div className='form-group'>
                         <label htmlFor='name'>Name</label>
                         <input className='form-control' type='text' id='name' name='name' 
                         placeholder='Name' value={props.useCategory.name ?? ''}
@@ -34,7 +25,7 @@ export function CategoryForm(props) {
                 </div>
 				<div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='category_id'>Category parente</label>
+                        <label htmlFor='category_id'>Categorie parente</label>
                         <select className='select2 form-control' id='category_id' name='category_id' 
                         value={props.useCategory.category_id ?? ''} disabled={props.isDisabled} 
                         onChange={ e => props.useCategory.setCategory_id(e.target.value) ?? null}>

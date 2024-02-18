@@ -13,8 +13,6 @@ export function AdminListView() {
     const tableAttributes = {
         'fullname': {},
 		'email': {},
-		'profile_img_url': {},
-		'role_id': {},
 		
     }
     const tableActions = ['edit', 'delete'];

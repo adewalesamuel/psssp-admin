@@ -75,7 +75,7 @@ export function PermissionListView() {
             <h3>Liste Permissions</h3>
             <Components.Loader isLoading={isLoading}>
                 <Link className='btn btn-info' to='/permissions/create'>
-                    <i className='icon ion-plus'></i> Ajout permission
+                    <i className='icon ion-plus'></i> Ajouter permission
                 </Link>
                 <div className='table-responsive'>
                     <Components.Table controllers={{handleEditClick, handleDeleteClick}} 
