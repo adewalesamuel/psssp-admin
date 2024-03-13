@@ -13,14 +13,14 @@ export function UserListView() {
     const tableAttributes = {
         'fullname': {},
 		'email': {},
-		'phone_number': {},
 		'backup_number': {},
 		'whatsapp_number': {},
 		'telegram_number': {},
 		'shop_name': {},
 		'is_active': {},
-		'sponsor_code': {},
 		'activation_code': {},
+		'sponsor_code': {},
+		'phone_number': {},
 		'country_name': {},
 		
     }
@@ -58,17 +58,19 @@ export function UserListView() {
 
     const init = useCallback(async () => {
         try {
-            const {users} = await UserService.getAll(
+            const {accounts} = await UserService.getAll(
                 {page: page}, abortController.signal);
-            const usersCopy = users.data.map(user => {
+            const accountsCopy = accounts.data.map(account => {
                 return {
-                    ...user,
-                    'country_name': user?.country?.name ?? ""
+                    ...account,
+                    'sponsor_code': account.user.sponsor_code,
+                    'phone_number': account.user.fullname,
+                    'country_name': account?.country?.name ?? ""
                 }
             })
 
-            setUsers(usersCopy);
-            setPageLength(users.last_page);
+            setUsers(accountsCopy);
+            setPageLength(accounts.last_page);
         } catch (error) {
             console.log(error);
         } finally {

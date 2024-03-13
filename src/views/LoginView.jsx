@@ -4,7 +4,6 @@ import { Components } from "../components";
 import { Services } from "../services";
 import { Utils } from "../utils";
 import { useNavigate } from 'react-router-dom';
-import logoLight from '../assets/images/logo-light.png';
 import logo from '../assets/images/logo.png';
 
 export function LoginView() {

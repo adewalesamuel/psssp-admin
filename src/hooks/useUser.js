@@ -20,10 +20,10 @@ export const useUser = () => {
     const [errors, setErrors] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
 
-    const getUser = (userId, signal) => {        
-        return Services.UserService.getById(userId, signal)
+    const getUser = (accountId, signal) => {        
+        return Services.UserService.getById(accountId, signal)
         .then(response => {
-            fillUser(response.user);
+            fillUser(response.account);
             setIsDisabled(false);
         });
     }
@@ -48,7 +48,7 @@ export const useUser = () => {
 
         return Services.UserService.create(JSON.stringify(payload), signal);
     }
-    const updateUser = (userId, signal) => {
+    const updateUser = (accountId, signal) => {
         const payload = {
             fullname,
 		email,
@@ -66,26 +66,26 @@ export const useUser = () => {
 		
         };
 
-        return Services.UserService.update(userId, JSON.stringify(payload), signal);
+        return Services.UserService.update(accountId, JSON.stringify(payload), signal);
     }
-    const deleteUser = (userId, signal) => {
-        return Services.UserService.destroy(userId, signal);
+    const deleteUser = (accountId, signal) => {
+        return Services.UserService.destroy(accountId, signal);
     }
-    const fillUser = (user) => {
-        setId(user.id);
-        setFullname(user.fullname ?? '');
-		setEmail(user.email ?? '');
-		setPassword(user.password ?? '');
-		setPhone_number(user.phone_number ?? '');
-		setBackup_number(user.backup_number ?? '');
-		setWhatsapp_number(user.whatsapp_number ?? '');
-		setTelegram_number(user.telegram_number ?? '');
-		setShop_name(user.shop_name ?? '');
-		setProfile_img_url(user.profile_img_url ?? '');
-		setIs_active(user.is_active ?? '');
-		setSponsor_code(user.sponsor_code ?? '');
-		setActivation_code(user.activation_code ?? '');
-		setCountry_id(user.country_id ?? '');
+    const fillUser = (account) => {
+        setId(account.id);
+        setFullname(account.fullname ?? '');
+		setEmail(account.email ?? '');
+		setPassword(account.password ?? '');
+		setPhone_number(account.phone_number ?? '');
+		setBackup_number(account.backup_number ?? '');
+		setWhatsapp_number(account.whatsapp_number ?? '');
+		setTelegram_number(account.telegram_number ?? '');
+		setShop_name(account.shop_name ?? '');
+		setProfile_img_url(account.profile_img_url ?? '');
+		setIs_active(account.is_active ?? '');
+		setSponsor_code(account.sponsor_code ?? '');
+		setActivation_code(account.activation_code ?? '');
+		setCountry_id(account.country_id ?? '');
 		
     }
     const emptyUser = () => {

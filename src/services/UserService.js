@@ -1,7 +1,7 @@
 import { Api } from './Api';
 
 const  ENPOINTS = {
-    User: 'users',
+    User: 'accounts',
 };
 
 const getAll = (params, signal) => {
