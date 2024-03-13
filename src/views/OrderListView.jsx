@@ -1,6 +1,6 @@
 
 import { useCallback, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Services } from '../services';
 import { Components } from '../components';
 import { Utils } from '../utils';
@@ -58,7 +58,7 @@ export function OrderListView() {
             const ordersData = orders.data.map(order => ({
                 ...order,
                 product_name: order?.product?.name,
-                user_name: order?.user?.fullname
+                user_name: order?.account?.fullname
             }))
 
             setOrders(ordersData);

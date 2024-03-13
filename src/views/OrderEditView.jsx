@@ -43,9 +43,9 @@ export function OrderEditView() {
                 abortController.signal);
 			setProducts(products);
 
-			const { user } = await Services.UserService.getById(
-                order.user_id, abortController.signal);
-			setUser(user);
+			const { account } = await Services.UserService.getById(
+                order.account_id, abortController.signal);
+			setUser(account);
         } catch (error) {
             console.log(error);
         }finally{
