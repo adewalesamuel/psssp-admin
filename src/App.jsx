@@ -10,7 +10,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/admin'>
       <Routes>
         <Route path='*' element={<AppRoutes.MainRoutes />} />
         <Route path='/login' element={<Views.LoginView />} />
