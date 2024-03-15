@@ -12,8 +12,8 @@ export function ProductListView() {
 
     const tableAttributes = {
         'image': {},
+        'category_name': {},
         'name': {},
-		'category_name': {},
 		'price': {},
 		'download_code': {},
 		'initial_stock': {},

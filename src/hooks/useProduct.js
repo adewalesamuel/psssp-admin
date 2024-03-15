@@ -7,6 +7,7 @@ export const useProduct = () => {
 	const [slug, setSlug] = useState('');
 	const [description, setDescription] = useState('');
 	const [price, setPrice] = useState('');
+	const [is_public, setIs_public] = useState(false);
 	const [download_code, setDownload_code] = useState('');
 	const [initial_stock, setInitial_stock] = useState('');
 	const [current_stock, setCurrent_stock] = useState('');
@@ -38,6 +39,7 @@ export const useProduct = () => {
 		img_url,
 		file_url,
 		user_id,
+		is_public,
 		category_id,
 		
         };
@@ -56,6 +58,7 @@ export const useProduct = () => {
 		img_url,
 		file_url,
 		user_id,
+		is_public,
 		category_id,
 		
         };
@@ -77,6 +80,7 @@ export const useProduct = () => {
 		setImg_url(product.img_url ?? '');
 		setFile_url(product.file_url ?? '');
 		setUser_id(product.user_id ?? '');
+		setIs_public(product.is_public ?? '')
 		setCategory_id(product.category_id ?? '');
 		
     }
@@ -93,6 +97,7 @@ export const useProduct = () => {
 		setFile_url('');
 		setUser_id('');
 		setCategory_id('');
+		setIs_public('');
 		
     }
 
@@ -108,6 +113,7 @@ export const useProduct = () => {
 		img_url,
 		file_url,
 		user_id,
+		is_public,
 		category_id,
 		
         errors,
@@ -122,6 +128,7 @@ export const useProduct = () => {
 		setImg_url,
 		setFile_url,
 		setUser_id,
+		setIs_public,
 		setCategory_id,
 		
         setId,

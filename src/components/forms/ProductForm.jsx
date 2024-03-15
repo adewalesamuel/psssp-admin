@@ -98,6 +98,17 @@ export function ProductForm(props) {
                     </div>
                 </div> 
                 <div className='col-12'>
+                    <div className='form-check form-check-inline mb-3'>
+                        <label htmlFor='is_public' className="form-check-label cursor-pointer">
+                            Appartient à la communauté
+                            <input className='form-check-input ml-3' type='checkbox' id='is_public' 
+                            name='is_active' checked={Boolean(props.useProduct.is_public)}
+                            disabled={props.isDisabled} onChange={ e => 
+                                props.useProduct.setIs_public(!Boolean(props.useProduct.is_public)) ?? null} required/>
+                        </label>
+                    </div>
+                </div>
+                <div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor="basicInputFile">Fichier</label>
                         <div className="custom-file">
