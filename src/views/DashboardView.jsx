@@ -1,7 +1,7 @@
 export function DashboardView(){
 	return (
 			<>
-				DashboardView
+				Tableau de bord
 			</>
 		)
 }

@@ -1,6 +1,8 @@
 import * as Icons from 'react-feather';
+import { Utils } from '../utils';
 
 export function Table(props) {
+    const {_} = Utils.String;
     const ACTIONS = {
         EDIT: 'edit',
         READ: 'read',
@@ -30,15 +32,14 @@ export function Table(props) {
         </button>
         );
 
-    const renderTableHeads = () => {
+    const im = () => {
         const tableHeads = Object.keys(tableAttributes)
         .map((key, index) => {
-            const regEx = new RegExp('[-_]', 'gi');
             return (
                 <th className={`${tableAttributes[key].thClassName ?? ""} 
                 whitespace-no-wrap`}
                 key={index}>
-                    {key.replace(regEx, ' ').toUpperCase()}
+                    {_(key)}
                 </th>
             )
         })
@@ -94,7 +95,7 @@ export function Table(props) {
             <div className='table-responsive'>
                 <table className="table">
                     <thead>
-                        <tr>{renderTableHeads()}</tr>
+                        <tr>{im()}</tr>
                     </thead>
                     <tbody>
                         {tableData.map((rowData, index) => renderTableRow(rowData, index))}
