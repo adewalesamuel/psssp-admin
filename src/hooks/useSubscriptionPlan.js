@@ -49,7 +49,7 @@ export const useSubscriptionPlan = () => {
         };
 
         return Services.SubscriptionPlanService.update(
-        	subscription_planId, JSON.stringify(payload), signal);
+            subscription_planId, JSON.stringify(payload), signal);
     }
     const deleteSubscriptionPlan = (subscription_planId, signal) => {
         return Services.SubscriptionPlanService.destroy(subscription_planId, signal);

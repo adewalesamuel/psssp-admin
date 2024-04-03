@@ -9,6 +9,7 @@ import { AdminService } from './AdminService';
 import { EbookService } from './EbookService';
 import { AuthService } from './AuthService';
 import { FileService } from './FileService';
+import { SubscriptionPlanService } from './SubscriptionPlanService';
 
 export const Services = {
     CountryService,
@@ -21,6 +22,7 @@ export const Services = {
 	AdminService,
 	EbookService,
 	AuthService,
-	FileService
+	FileService,
+	SubscriptionPlanService
 	
 }

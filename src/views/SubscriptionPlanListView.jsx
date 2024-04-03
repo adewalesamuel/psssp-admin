@@ -3,7 +3,6 @@ import { useCallback, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Services } from '../services';
 import { Components } from '../components';
-import { Utils } from '../utils';
 
 export function SubscriptionPlanListView() {
     let abortController = new AbortController();
@@ -76,7 +75,7 @@ export function SubscriptionPlanListView() {
             <h6>Liste SubscriptionPlans</h6>
             <Components.Loader isLoading={isLoading}>
                 <Link className='btn btn-info' to='/subscription-plans/create'>
-                    <i className='icon ion-plus'></i> Créer subscription_plan
+                    <i className='icon ion-plus'></i> Créer un plan
                 </Link>
                 <Components.Table controllers={{handleEditClick, handleDeleteClick}} 
                 tableAttributes={tableAttributes} tableActions={tableActions} 

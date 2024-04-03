@@ -25,6 +25,9 @@ export function MainRoutes() {
                 <Route path='admins' element={<Views.AdminListView />}/>
                 <Route path='admins/create' element={<Views.AdminCreateView />}/>
                 <Route path='admins/:id/edit' element={<Views.AdminEditView />}/>
+                <Route path='subscription-plans' element={<Views.SubscriptionPlanListView />}/>
+                <Route path='subscription-plans/create' element={<Views.SubscriptionPlanCreateView />}/>
+                <Route path='subscription-plans/:id/edit' element={<Views.SubscriptionPlanEditView />}/>
             </Routes>
         </Layouts.MainLayout>
     )

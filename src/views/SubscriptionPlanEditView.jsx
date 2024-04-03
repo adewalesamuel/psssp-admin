@@ -3,7 +3,6 @@ import { useCallback, useEffect, useState } from 'react';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
 import { useParams } from 'react-router-dom';
-import { Services } from '../services';
 
 export function SubscriptionPlanEditView() {
     let abortController = new AbortController();
@@ -22,7 +21,7 @@ export function SubscriptionPlanEditView() {
         
         try {
             await useSubscriptionPlan.updateSubscriptionPlan(
-            	id, abortController.signal);
+                id, abortController.signal);
         } catch (error) {
             if ('message' in error) setErrorMessages([error.message]);
             if (!('messages' in error)) return;
@@ -55,7 +54,7 @@ export function SubscriptionPlanEditView() {
 
     return (
         <>
-            <h3>Modifier SubscriptionPlan</h3>
+            <h3 className='slim-pagetitle'>Modifier le Plan</h3>
 
             <Components.ErrorMessages>
                 {errorMessages}

@@ -103,8 +103,8 @@ export function ProductForm(props) {
                             Appartient à la communauté
                             <input className='form-check-input ml-3' type='checkbox' id='is_public' 
                             name='is_active' checked={Boolean(props.useProduct.is_public)}
-                            disabled={props.isDisabled} onChange={ e => 
-                                props.useProduct.setIs_public(!Boolean(props.useProduct.is_public)) ?? null} required/>
+                            disabled={props.isDisabled} onChange={ () => 
+                                props.useProduct.setIs_public(!props.useProduct.is_public) ?? null} required/>
                         </label>
                     </div>
                 </div>

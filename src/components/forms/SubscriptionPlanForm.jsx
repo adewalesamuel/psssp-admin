@@ -1,7 +1,8 @@
 //'use client'
 export function SubscriptionPlanForm(props) {
     return (
-        <form onSubmit={props.handleFormSubmit ?? null}>
+        <form className='form card col-12 col-md-6 p-4' 
+        onSubmit={props.handleFormSubmit ?? null}>
             <div className='row'>
                 <div className='col-12'>
                     <div className='form-group'>
@@ -42,14 +43,10 @@ export function SubscriptionPlanForm(props) {
 				<div className='col-12'>
                 <div className='form-group'>
                     <label htmlFor='num_product'>num_product</label>
-                    <select className='select2 form-control' id='num_product' name='num_product' 
-                    value={props.useSubscriptionPlan.num_product ?? ''} disabled={props.isDisabled} 
-                    onChange={ e => props.useSubscriptionPlan.setNum_product(e.target.value) ?? null}>
-                        <option hidden>Choisissez une option</option>
-                        <option value='pending'>En cours</option>
-                        <option value='validated'>Validé</option>
-                        <option value='canceled'>Annulé</option>
-                    </select>
+                    <input className='form-control' type='number' id='num_product' name='num_product' 
+                    placeholder='num_product' value={props.useSubscriptionPlan.num_product ?? ''}
+                    disabled={props.isDisabled} onChange={ e => 
+                            props.useSubscriptionPlan.setNum_product(e.target.value) ?? null} required/>
                 </div>
             </div>
 				<div className='col-12'>

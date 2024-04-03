@@ -24,6 +24,10 @@ export function MainMenu() {
                                 <i className="mdi mdi-store"></i>
                                 <span>Publication</span>
                             </NavLink>
+                            <NavLink exact="true" to="/subscription-plans">
+                                <i className="mdi mdi-store"></i>
+                                <span>Plans</span>
+                            </NavLink>
                             <NavLink exact="true" to="/categories">
                                 <i className="mdi mdi-store"></i>
                                 <span>Categorie</span>

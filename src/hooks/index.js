@@ -8,6 +8,7 @@ import { useRole } from './useRole';
 import { useAdmin } from './useAdmin';
 import { useEbook } from './useEbook';
 import { useFile } from './useFile';
+import { useSubscriptionPlan } from './useSubscriptionPlan';
 
 export const Hooks = {
     useCountry,
@@ -19,6 +20,7 @@ export const Hooks = {
 	useRole,
 	useAdmin,
 	useEbook,
-	useFile
+	useFile,
+	useSubscriptionPlan
 	
 }

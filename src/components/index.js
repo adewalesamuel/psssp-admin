@@ -18,6 +18,7 @@ import { ImageFileInput } from './ImageFileInput';
 import { Header } from './Header';
 import { MainMenu } from './MainMenu';
 import { Footer } from './Footer';
+import { SubscriptionPlanForm } from './forms/SubscriptionPlanForm';
 
 export const Components = {
     CountryForm,
@@ -39,6 +40,7 @@ export const Components = {
 	ImageFileInput,
 	Header,
 	MainMenu,
-	Footer
+	Footer,
+	SubscriptionPlanForm
 	
 }
