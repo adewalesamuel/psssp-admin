@@ -9,8 +9,8 @@ export const useProduct = () => {
 	const [price, setPrice] = useState('');
 	const [is_public, setIs_public] = useState(false);
 	const [download_code, setDownload_code] = useState('');
-	const [initial_stock, setInitial_stock] = useState('');
-	const [current_stock, setCurrent_stock] = useState('');
+	const [initial_stock, setInitial_stock] = useState(1);
+	const [current_stock, setCurrent_stock] = useState(1);
 	const [img_url, setImg_url] = useState('');
 	const [file_url, setFile_url] = useState('');
 	const [user_id, setUser_id] = useState(null);

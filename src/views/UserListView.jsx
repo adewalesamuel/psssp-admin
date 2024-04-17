@@ -13,14 +13,14 @@ export function UserListView() {
     const tableAttributes = {
         'fullname': {},
 		'email': {},
+        'phone_number': {},
+        'whatsapp_number': {},
+        'telegram_number': {},
 		'backup_number': {},
-		'whatsapp_number': {},
-		'telegram_number': {},
 		'shop_name': {},
 		'is_active': {},
 		'activation_code': {},
 		'sponsor_code': {},
-		'phone_number': {},
 		'country_name': {},
 		
     }
@@ -62,10 +62,17 @@ export function UserListView() {
                 {page: page}, abortController.signal);
             const accountsCopy = accounts.data.map(account => {
                 return {
-                    ...account,
-                    'sponsor_code': account.user.sponsor_code,
-                    'phone_number': account.user.fullname,
-                    'country_name': account?.country?.name ?? ""
+                    'fullname': account.fullname,
+                    'email': account.email,
+                    'phone_number': account.user.phone_number,
+                    'whatsapp_number': account.whatsapp_number,
+                    'telegram_number': account.telegram_number,
+                    'backup_number': account.backup_number,
+                    'shop_name': account.shop_name,
+                    'is_active': account.is_active,
+                    'activation_code': account.activation_code,
+                    'sponsor_code': account?.user.sponsor_code,
+                    'country_name': account.country?.name ?? ""
                 }
             })
 
@@ -91,9 +98,9 @@ export function UserListView() {
         <>
             <h3>Liste des utilisateurs</h3>
             <Components.Loader isLoading={isLoading}>
-                <Link className='btn btn-info' to='/users/create'>
+                {/*<Link className='btn btn-info' to='/users/create'>
                     <i className='icon ion-plus'></i> Ajouter un utilisateur
-                </Link>
+                </Link>*/}
                 <div className='table-responsive'>
                     <Components.Table controllers={{handleEditClick, handleDeleteClick}} 
                     tableAttributes={tableAttributes} tableActions={tableActions} 

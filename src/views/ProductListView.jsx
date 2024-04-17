@@ -15,9 +15,6 @@ export function ProductListView() {
         'category_name': {},
         'name': {},
 		'price': {},
-		'download_code': {},
-		'initial_stock': {},
-		'current_stock': {},
         'product_link': {},
 		
     }

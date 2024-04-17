@@ -1,7 +1,9 @@
 import langFr from '../assets/lang/fr.json';
 
 const _ = (key) => {
-    return (key in langFr) ? langFr[key] : key;
+    const lowerKey = key.toLowerCase();
+    
+    return (lowerKey in langFr) ? langFr[lowerKey] : key;
 }
 
 export const String = {

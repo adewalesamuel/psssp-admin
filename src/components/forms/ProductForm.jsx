@@ -1,8 +1,11 @@
 import { Components } from '../../components';
 import { Hooks } from '../../hooks';
 import { useEffect } from 'react';
+import { Utils } from '../../utils';
 
 export function ProductForm(props) {
+    const {_} = Utils.String;
+
     const useImageFile = Hooks.useFile();
     const useFile = Hooks.useFile();
 
@@ -37,7 +40,7 @@ export function ProductForm(props) {
                 </div>
                 <div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='name'>Name</label>
+                        <label htmlFor='name'>{_('Name')}</label>
                         <input className='form-control' type='text' id='name' name='name' 
                         placeholder='Name' value={props.useProduct.name ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
@@ -46,7 +49,7 @@ export function ProductForm(props) {
                 </div>
 				<div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='description'>Description</label>
+                        <label htmlFor='description'>{_('Description')}</label>
                         <textarea className='form-control' type='text' id='description' name='description' 
                         placeholder='Description' value={props.useProduct.description ?? ''} rows={5}
                         disabled={props.isDisabled} onChange={ e => 
@@ -55,34 +58,16 @@ export function ProductForm(props) {
                 </div>
 				<div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='price'>Price</label>
+                        <label htmlFor='price'>{_('Price')}</label>
                         <input className='form-control' type='number' id='price' name='price' 
-                        placeholder='Price' value={props.useProduct.price ?? ''}
+                        placeholder='Prix' value={props.useProduct.price ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
                             props.useProduct.setPrice(e.target.value) ?? null} required/>
                     </div>
                 </div>
 				<div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='initial_stock'>Initial_stock</label>
-                        <input className='form-control' type='number' id='initial_stock' name='initial_stock' 
-                        placeholder='Initial_stock' value={props.useProduct.initial_stock ?? ''}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useProduct.setInitial_stock(e.target.value) ?? null} required/>
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='current_stock'>Current_stock</label>
-                        <input className='form-control' type='number' id='current_stock' name='current_stock' 
-                        placeholder='Current_stock' value={props.useProduct.current_stock ?? ''}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useProduct.setCurrent_stock(e.target.value) ?? null} required/>
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='category_id'>Category</label>
+                        <label htmlFor='category_id'>{_('Categorie')}</label>
                         <select className='select2 form-control' id='category_id' name='category_id' 
                         value={props.useProduct.category_id ?? ''} disabled={props.isDisabled} 
                         onChange={ e => props.useProduct.setCategory_id(e.target.value) ?? null}>
