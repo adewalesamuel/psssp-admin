@@ -8,7 +8,6 @@ export function MainRoutes() {
             <Routes>
                 <Route path='' element={<Views.DashboardView />}/>
                 <Route path='orders' element={<Views.OrderListView />}/>
-                <Route path='users/:id/orders/create' element={<Views.OrderCreateView />}/>
                 <Route path='orders/:id/edit' element={<Views.OrderEditView />}/>
                 <Route path='users' element={<Views.UserListView />}/>
                 <Route path='users/create' element={<Views.UserCreateView />}/>

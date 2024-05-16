@@ -1,6 +1,6 @@
 
 import { useCallback, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { Services } from '../services';
 import { Components } from '../components';
 import { Utils } from '../utils';
@@ -21,10 +21,11 @@ export function ProductListView() {
     const tableActions = ['edit', 'delete'];
     
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
 
     const [products, setProducts] = useState([]);
-    const [page,] = useState(1);
-    const [, setPageLength] = useState(1);
+    const [page, setPage] = useState(1);
+    const [pageLength, setPageLength] = useState(1);
     const [isLoading, setIsLoading] = useState(true);
 
     const handleEditClick = (e, data) => {
@@ -83,6 +84,12 @@ export function ProductListView() {
         }
     }, [init])
 
+    useEffect(() => {
+        if (!searchParams.get('page')) return;
+
+        setPage(searchParams.get('page'));
+    }, [searchParams.get('page')]);
+
     return (
         <>
             <h3>Liste des publications</h3>
@@ -95,6 +102,7 @@ export function ProductListView() {
                     tableAttributes={tableAttributes} tableActions={tableActions} 
                     tableData={products}/>
                 </div>
+                <Components.Pagination pageLength={pageLength} page={parseInt(page)} />
             </Components.Loader>
         </>
     )

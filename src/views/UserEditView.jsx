@@ -57,9 +57,6 @@ export function UserEditView() {
     return (
         <>
             <h3 className='slim-pagetitle'>Modifier un utilisateur</h3>
-            <Link className='btn btn-info mb-3' to={`/users/${id}/orders/create`}>
-                <i className='icon ion-plus'></i> Créer une commande
-            </Link>
             <Components.ErrorMessages>
                 {errorMessages}
             </Components.ErrorMessages>

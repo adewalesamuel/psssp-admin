@@ -16,6 +16,7 @@ export const useUser = () => {
 	const [sponsor_code, setSponsor_code] = useState('');
 	const [activation_code, setActivation_code] = useState('');
 	const [country_id, setCountry_id] = useState('');
+	const [user_id, setUser_id] = useState('');
 	
     const [errors, setErrors] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
@@ -43,6 +44,7 @@ export const useUser = () => {
 		sponsor_code,
 		activation_code,
 		country_id,
+		user_id,
 		
         };
 
@@ -63,6 +65,7 @@ export const useUser = () => {
 		sponsor_code,
 		activation_code,
 		country_id,
+		user_id,
 		
         };
 
@@ -86,6 +89,7 @@ export const useUser = () => {
 		setSponsor_code(account.sponsor_code ?? '');
 		setActivation_code(account.activation_code ?? '');
 		setCountry_id(account.country_id ?? '');
+		setUser_id(account.user_id ?? '');
 		
     }
     const emptyUser = () => {
@@ -103,6 +107,7 @@ export const useUser = () => {
 		setSponsor_code('');
 		setActivation_code('');
 		setCountry_id('');
+		setUser_id('');
 		
     }
 
@@ -121,6 +126,7 @@ export const useUser = () => {
 		sponsor_code,
 		activation_code,
 		country_id,
+		user_id,
 		
         errors,
         isDisabled,
@@ -137,6 +143,7 @@ export const useUser = () => {
 		setSponsor_code,
 		setActivation_code,
 		setCountry_id,
+		setUser_id,
 		
         setId,
         setErrors,
