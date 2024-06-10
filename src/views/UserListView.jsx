@@ -1,6 +1,6 @@
 
 import { useCallback, useEffect, useState } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Services } from '../services';
 import { Components } from '../components';
 import { Utils } from '../utils';
@@ -22,6 +22,7 @@ export function UserListView() {
 		'activation_code': {},
 		'sponsor_code': {},
 		'country_name': {},
+        'created_at': {},
 		
     }
     const tableActions = ['edit', 'delete'];
@@ -74,7 +75,8 @@ export function UserListView() {
                     'is_active': account.is_active,
                     'activation_code': account.activation_code,
                     'sponsor_code': account?.user.sponsor_code,
-                    'country_name': account.country?.name ?? ""
+                    'country_name': account.country?.name ?? "",
+                    'created_at': new Date(account.created_at).toLocaleDateString(),
                 }
             })
 

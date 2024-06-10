@@ -30,5 +30,6 @@
     "user_name": "Nom d'utilisateur",
     "whatsapp_number": "Numéro WhatsApp",
     "shop_name": "Nom de la boutique",
-    "sponsor_code": "Code de parrainage"
+    "sponsor_code": "Code de parrainage",
+    "created_at": "Date d'inscription"
 }
